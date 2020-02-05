@@ -1,10 +1,11 @@
 <template>
   <div id="app">
     <div id="nav">
-      <router-link to="/">Home</router-link> |
+      <router-link to="/">Home</router-link>|
+      <router-link to="/fleet">Fleet</router-link>|
       <router-link to="/about">About</router-link>
     </div>
-    <router-view/>
+    <router-view />
   </div>
 </template>
 
@@ -14,7 +15,7 @@ body {
 }
 
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
@@ -26,6 +27,9 @@ body {
   margin: 0;
   overflow: hidden;
   background-color: #333;
+  position: fixed;
+  width: 100vw;
+  top: 0;
 }
 
 #nav a {
@@ -46,5 +50,4 @@ body {
 #nav a.router-link-exact-active {
   color: #42b983;
 }
-
 </style>
