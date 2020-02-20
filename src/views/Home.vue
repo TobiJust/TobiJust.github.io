@@ -1,42 +1,113 @@
 <template>
   <div class="home">
-    <div class="home__header">Header</div>
-    <img class="cover-img" alt="Bairline" src="../assets/cover.jpg" />
-    <div class="cover-button">
-      <h2>Bairline Fluggesellschaft mbH & Co. KG</h2>
-    </div>
-    <Intro msg="Bairline Fluggesellschaft mbH & Co. KG" />
+    <section class="cover">
+      <transition name="fade" mode="out-in">
+        <img
+          class="home__cover__image"
+          :src="logo.image"
+          :key="logo.label"
+          data-toggle="tooltip"
+          data-placement="bottom"
+          alt="Bairline"
+        />
+      </transition>
+      <div class="home__cover__button">
+        <router-link :to="{ name: logo.route }">{{ logo.label }}</router-link>
+      </div>
+    </section>
+    <section class="intro">
+      <Intro></Intro>
+    </section>
+    <section class="services">
+      <Promises></Promises>
+    </section>
+    <Fleet></Fleet>
+    <section class="catering"></section>
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import Intro from "@/components/Intro.vue";
+import Intro from "@/components/Intro";
+import Promises from "@/components/Promises";
+import Fleet from "@/views/Fleet";
 
 export default {
   name: "home",
-  components: {
-    Intro
+  components: { Intro, Promises, Fleet },
+  data: function() {
+    return {
+      logos: [
+        {
+          image: require(`@/assets/web/SLT_0779-Bearbeitet.jpg`),
+          label: "Home",
+          route: "home"
+        },
+        {
+          image: require(`@/assets/web/SLT_0785-Bearbeitet.jpg`),
+          label: "Fleet",
+          route: "fleet"
+        }
+      ],
+      logo: {
+        image: require(`@/assets/web/SLT_0779-Bearbeitet.jpg`),
+        label: "Home",
+        route: "home"
+      }
+    };
+  },
+  created: function() {
+    let index = 0;
+    setInterval(
+      function() {
+        if (index >= this.logos.length) {
+          index = 0;
+        }
+        this.logo = this.logos[index++];
+      }.bind(this),
+      6000
+    );
   }
 };
 </script>
 
-<style scoped>
-.cover-img {
-  width: 100%;
+<style lang="less" scoped>
+section {
+  display: flex;
+}
+.cover,
+.intro {
   height: 100vh;
-  object-fit: cover;
-  object-position: 0 100%;
 }
 
-.cover-button {
-  position: absolute;
-  right: 200px;
-  top: 40%;
-  background: rgba(255, 255, 255, 0.1);
-  padding: 0 15px;
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s;
 }
-.cover-button > h2 {
-  color: #333;
+.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
+}
+.home {
+  position: relative;
+  &__cover__image {
+    width: 100%;
+    max-height: 100%;
+    object-fit: cover;
+    object-position: 0 100%;
+    filter: brightness(50%);
+  }
+
+  &__cover__button {
+    position: absolute;
+    height: 45px;
+    left: 10%;
+    top: 70vh;
+    padding: 0 15px;
+
+    a {
+      font-size: 1.8em;
+      color: white;
+      text-decoration: none;
+    }
+  }
 }
 </style>
