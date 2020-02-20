@@ -1,60 +1,112 @@
 <template>
-  <v-app>
-    <v-app-bar
-      app
-      color="primary"
-      dark
-    >
-      <div class="d-flex align-center">
-        <v-img
-          alt="Vuetify Logo"
-          class="shrink mr-2"
-          contain
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-logo-dark.png"
-          transition="scale-transition"
-          width="40"
-        />
-
-        <v-img
-          alt="Vuetify Name"
-          class="shrink mt-1 hidden-sm-and-down"
-          contain
-          min-width="100"
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-name-dark.png"
-          width="100"
-        />
-      </div>
-
-      <v-spacer></v-spacer>
-
-      <v-btn
-        href="https://github.com/vuetifyjs/vuetify/releases/latest"
-        target="_blank"
-        text
-      >
-        <span class="mr-2">Latest Release</span>
-        <v-icon>mdi-open-in-new</v-icon>
-      </v-btn>
-    </v-app-bar>
-
-    <v-content>
-      <HelloWorld/>
-    </v-content>
-  </v-app>
+  <div id="app">
+    <div class="nav">
+      <router-link to="/">
+        <img class="nav__image" src="@/assets/logo/Logo_small.png" alt />
+      </router-link>
+      <router-link to="/" color="primary">Home</router-link>
+      <router-link to="/fleet">Fleet</router-link>
+      <router-link to="/about">About</router-link>
+      <router-link to="/contact">Contact</router-link>
+      <a class="nav__mail" href="/contact">
+        <v-icon>mdi-email</v-icon>
+      </a>
+    </div>
+    <div class="main">
+      <router-view />
+    </div>
+    <div class="contact">
+      <Contact></Contact>
+    </div>
+  </div>
 </template>
-
 <script>
-import HelloWorld from './components/HelloWorld';
+import Contact from "@/components/Contact.vue";
 
 export default {
-  name: 'App',
-
   components: {
-    HelloWorld,
-  },
-
-  data: () => ({
-    //
-  }),
+    Contact
+  }
 };
 </script>
+
+<style lang="less">
+@import (css)
+  url("https://fonts.googleapis.com/css?family=Montserrat|Open+Sans&display=swap");
+
+body {
+  margin: 0;
+}
+
+#app {
+  font-family: "Montserrat", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+}
+
+.nav {
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+  background-color: #333;
+  width: 100vw;
+  top: 0;
+  display: grid;
+  grid-template-columns: 15% max-content max-content max-content max-content auto;
+  align-items: center;
+  z-index: 1;
+  height: 10vh;
+
+  &__image {
+    width: 100%;
+  }
+
+  & a {
+    font-weight: bold;
+    color: #2c3e50;
+    float: left;
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 0 16px;
+    text-decoration: none;
+  }
+
+  & a:hover:not(.active) {
+    color: var(--v-primary-base);
+  }
+
+  & a.router-link-exact-active {
+    color: var(--v-primary-base);
+  }
+  &__mail {
+    position: fixed;
+    top: 2vh;
+    right: 3.75rem;
+    transform: translateX(50%);
+    z-index: 2;
+
+    :hover::before {
+      transform: scale(1.2);
+    }
+    ::before {
+      content: "";
+      cursor: pointer;
+      color: white;
+      display: block;
+      width: 100%;
+      height: 100%;
+      background-color: var(--v-primary-base);
+      padding: 10px;
+      border-radius: 100%;
+      transform: scale(1);
+      transition: transform 175ms cubic-bezier(0.4, 0.25, 0.3, 1);
+    }
+  }
+}
+.main,
+.contact {
+}
+</style>
