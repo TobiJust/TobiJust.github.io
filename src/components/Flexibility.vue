@@ -1,22 +1,26 @@
 <template>
   <div class="flexibility">
     <div class="flexibility__content">
-      <h1 class="flexibility__headline">{{ $vuetify.lang.t("$vuetify.flexibility.headline") }}</h1>
+      <h1 class="flexibility__headline">
+        {{ $vuetify.lang.t('$vuetify.flexibility.headline') }}
+      </h1>
     </div>
     <div class="flexibility__image">
       <img class="flexibility__image__img" src="@/assets/flexibility.jpg" alt />
     </div>
-    <div class="flexibility__content">{{ $vuetify.lang.t("$vuetify.flexibility.content") }}</div>
+    <div class="flexibility__content">
+      {{ $vuetify.lang.t('$vuetify.flexibility.content') }}
+    </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: "flexibility",
+  name: 'flexibility',
   props: {
     msg: String
   }
-};
+}
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->

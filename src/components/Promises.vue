@@ -1,6 +1,8 @@
 <template>
   <div class="promises">
-    <h1 class="promises__headline">{{ $vuetify.lang.t("$vuetify.promises.headline") }}</h1>
+    <h1 class="promises__headline">
+      {{ $vuetify.lang.t('$vuetify.promises.headline') }}
+    </h1>
     <div class="promises__item">
       <Flexibility></Flexibility>
     </div>
@@ -14,12 +16,12 @@
 </template>
 
 <script>
-import Flexibility from "@/components/Flexibility";
-import Personality from "@/components/Personality";
-import Luxury from "@/components/Luxury";
+import Flexibility from '@/components/Flexibility'
+import Personality from '@/components/Personality'
+import Luxury from '@/components/Luxury'
 
 export default {
-  name: "promises",
+  name: 'promises',
   props: {
     msg: String
   },
@@ -28,7 +30,7 @@ export default {
     Personality,
     Luxury
   }
-};
+}
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->

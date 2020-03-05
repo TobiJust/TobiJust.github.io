@@ -1,22 +1,30 @@
 <template>
   <div class="luxury">
     <div class="luxury__content">
-      <h1 class="luxury__headline">{{ $vuetify.lang.t("$vuetify.luxury.headline") }}</h1>
+      <h1 class="luxury__headline">
+        {{ $vuetify.lang.t('$vuetify.luxury.headline') }}
+      </h1>
     </div>
     <div class="luxury__image">
-      <img class="luxury__image__img" src="@/assets/web/SLT_0740-Bearbeitet.jpg" alt />
+      <img
+        class="luxury__image__img"
+        src="@/assets/web/SLT_0740-Bearbeitet.jpg"
+        alt
+      />
     </div>
-    <div class="luxury__content">{{ $vuetify.lang.t("$vuetify.luxury.content") }}</div>
+    <div class="luxury__content">
+      {{ $vuetify.lang.t('$vuetify.luxury.content') }}
+    </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: "luxury",
+  name: 'luxury',
   props: {
     msg: String
   }
-};
+}
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->

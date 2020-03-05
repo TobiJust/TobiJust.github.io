@@ -1,18 +1,27 @@
 <template>
   <div class="home">
     <section class="cover">
-      <transition name="fade" mode="out-in">
-        <img
-          class="home__cover__image"
-          :src="logo.image"
-          :key="logo.label"
-          data-toggle="tooltip"
-          data-placement="bottom"
-          alt="Bairline"
-        />
-      </transition>
-      <div class="home__cover__button">
-        <router-link :to="{ name: logo.route }">{{ logo.label }}</router-link>
+      <img
+        v-for="logo in logos"
+        :key="logo.label"
+        class="home__cover__image"
+        :class="{ 'home__cover__image--active': logo.active }"
+        :src="logo.image"
+        data-toggle="tooltip"
+        data-placement="bottom"
+        alt="Bairline"
+      />
+      <div
+        class="home__cover__button"
+        @mouseover="hover = true"
+        @mouseleave="hover = false"
+      >
+        <router-link :to="{ name: currentLogo.route }">
+          {{ currentLogo.label }}
+          <v-icon large class="home__cover__button__icon" v-show="hover">
+            mdi-airplane-takeoff
+          </v-icon>
+        </router-link>
       </div>
     </section>
     <section class="intro">
@@ -21,57 +30,66 @@
     <section class="services">
       <Promises></Promises>
     </section>
-    <Fleet></Fleet>
+    <section class="fleet">
+      <Fleet></Fleet>
+    </section>
     <section class="catering"></section>
   </div>
 </template>
 
 <script>
-import Intro from "@/components/Intro";
-import Promises from "@/components/Promises";
-import Fleet from "@/views/Fleet";
+import Intro from '@/components/Intro'
+import Promises from '@/components/Promises'
+import Fleet from '@/views/Fleet'
 
 export default {
-  name: "home",
+  name: 'home',
   components: { Intro, Promises, Fleet },
   data: function() {
     return {
+      hover: false,
       logos: [
         {
           image: require(`@/assets/web/SLT_0779-Bearbeitet.jpg`),
-          label: "Home",
-          route: "home"
+          label: 'Home',
+          route: 'home',
+          active: true
         },
         {
           image: require(`@/assets/web/SLT_0785-Bearbeitet.jpg`),
-          label: "Fleet",
-          route: "fleet"
+          label: 'Fleet',
+          route: 'fleet',
+          active: false
         }
-      ],
-      logo: {
-        image: require(`@/assets/web/SLT_0779-Bearbeitet.jpg`),
-        label: "Home",
-        route: "home"
-      }
-    };
+      ]
+    }
+  },
+  computed: {
+    currentLogo: function() {
+      return this.logos.find(logo => logo.active)
+    }
   },
   created: function() {
-    let index = 0;
+    let index = 0
     setInterval(
       function() {
         if (index >= this.logos.length) {
-          index = 0;
+          index = 0
         }
-        this.logo = this.logos[index++];
+        for (let i = 0; i < this.logos.length; i++) {
+          this.logos[i].active = index === i
+        }
+        index++
       }.bind(this),
-      6000
-    );
+      5000
+    )
   }
-};
+}
 </script>
 
 <style lang="less" scoped>
 section {
+  position: relative;
   display: flex;
 }
 .cover,
@@ -79,34 +97,54 @@ section {
   height: 100vh;
 }
 
-.fade-enter-active,
-.fade-leave-active {
-  transition: opacity 0.5s;
-}
-.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
-  opacity: 0;
-}
 .home {
   position: relative;
-  &__cover__image {
-    width: 100%;
-    max-height: 100%;
-    object-fit: cover;
-    object-position: 0 100%;
-    filter: brightness(50%);
-  }
+  &__cover {
+    &__image {
+      position: absolute;
+      width: 100%;
+      max-height: 100%;
+      object-fit: cover;
+      object-position: 0 100%;
+      filter: brightness(50%);
+      opacity: 0;
+      transition: opacity 2s;
 
-  &__cover__button {
-    position: absolute;
-    height: 45px;
-    left: 10%;
-    top: 70vh;
-    padding: 0 15px;
+      &--active {
+        opacity: 1;
+      }
+    }
 
-    a {
-      font-size: 1.8em;
-      color: white;
-      text-decoration: none;
+    &__text {
+      position: absolute;
+      height: 45px;
+      right: 10%;
+      top: 30vh;
+    }
+
+    &__button {
+      position: absolute;
+      height: 45px;
+      left: 10%;
+      top: 70vh;
+
+      a {
+        font-size: 1.8em;
+        color: white;
+        text-decoration: none;
+        position: relative;
+        z-index: 2;
+        padding: 10px 40px;
+        background: var(--v-primary-base);
+        opacity: 0.6;
+
+        &:hover {
+          padding-right: 20px;
+        }
+      }
+      &__icon {
+        color: white;
+      }
     }
   }
 }

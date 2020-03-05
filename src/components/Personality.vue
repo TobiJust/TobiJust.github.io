@@ -1,22 +1,30 @@
 <template>
   <div class="personality">
-    <div class="personality__content">{{ $vuetify.lang.t("$vuetify.personality.content") }}</div>
+    <div class="personality__content">
+      {{ $vuetify.lang.t('$vuetify.personality.content') }}
+    </div>
     <div class="personality__image">
-      <img class="personality__image__img" src="@/assets/web/SLT_0779-Bearbeitet.jpg" alt />
+      <img
+        class="personality__image__img"
+        src="@/assets/web/SLT_0779-Bearbeitet.jpg"
+        alt
+      />
     </div>
     <div class="personality__content">
-      <h1 class="personality__headline">{{ $vuetify.lang.t("$vuetify.personality.headline") }}</h1>
+      <h1 class="personality__headline">
+        {{ $vuetify.lang.t('$vuetify.personality.headline') }}
+      </h1>
     </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: "personality",
+  name: 'personality',
   props: {
     msg: String
   }
-};
+}
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
@@ -28,7 +36,7 @@ export default {
   display: flex;
   align-items: center;
   transform: translateX(-50vw);
-  transition: transform 2s ease 1s;
+  transition: transform 2s ease 2s;
 
   &:hover {
     transform: translateX(0);
