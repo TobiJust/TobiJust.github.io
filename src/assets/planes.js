@@ -53,7 +53,7 @@ const planes = {
     ]
   },
   'Gulfstream 500': {
-    name: 'Gulfstream 500',
+    name: '',
     entryImage: require(`@/assets/plane/gulfstream500.jpeg`),
     coverImage: require(`@/assets/plane/citationX.jpg`),
     notAvailable: true
