@@ -5,6 +5,7 @@
       <router-link to="/fleet">Fleet</router-link>
       <router-link to="/aircraft-management">Aircraft Management</router-link>
       <router-link to="/contact">Contact</router-link>
+      <router-link to="/admin">Admin</router-link>
     </div>
     <div class="footer__legal">
       <a
@@ -29,7 +30,7 @@
     <hr class="footer__divider" />
     <p class="footer__copyright">
       All Rights Reserved © Bairline Fluggesellschaft mbH & Co. KG, Innsbrucker
-      Bundesstraße 107 5020 Salzburg, AT,
+      Bundesstraße 107, 5020 Salzburg, AT,
       <a href="tel:+49 1234 567890">+49 1234 567890</a>
       <br />
       Website by Tobias Just
@@ -45,7 +46,6 @@ export default {}
 .footer {
   background-color: #333;
   padding-bottom: 25px;
-  height: 100%;
 
   &__nav {
     padding: 0;

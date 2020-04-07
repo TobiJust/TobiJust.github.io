@@ -1,14 +1,16 @@
 <template>
-  <div id="app">
-    <Header></Header>
-    <div class="main">
-      <transition name="component-fade" mode="out-in">
-        <router-view />
-      </transition>
+  <v-app>
+    <div id="app">
+      <Header></Header>
+      <div class="main">
+        <transition name="component-fade" mode="out-in">
+          <router-view />
+        </transition>
+      </div>
+      <Contact v-if="$route.name !== 'contact'"></Contact>
+      <Footer></Footer>
     </div>
-    <Contact v-if="$route.name !== 'contact'"></Contact>
-    <Footer></Footer>
-  </div>
+  </v-app>
 </template>
 <script>
 import Contact from '@/components/Contact.vue'
@@ -32,7 +34,6 @@ body {
   margin: 0;
 }
 .main {
-  min-height: 100vh;
   // background-image: url('~@/assets/logo/Logo.png');
   background-position: center center;
 }

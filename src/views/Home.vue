@@ -30,8 +30,13 @@
     <section class="services">
       <Promises></Promises>
     </section>
-    <section class="fleet">
-      <Fleet></Fleet>
+    <section>
+      <div class="fleet">
+        <h1 class="fleet__headline">
+          {{ $vuetify.lang.t('$vuetify.fleet.headline') }}
+        </h1>
+        <Fleet></Fleet>
+      </div>
     </section>
     <section class="catering"></section>
   </div>
@@ -146,6 +151,17 @@ section {
         color: white;
       }
     }
+  }
+}
+
+.fleet {
+  background: var(--v-secondary-darken1);
+  line-height: 1.8em;
+  color: white;
+
+  &__headline {
+    margin: 10vh 0;
+    width: 100vw;
   }
 }
 </style>

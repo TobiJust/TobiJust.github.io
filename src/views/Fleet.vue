@@ -1,148 +1,159 @@
 <template>
-  <div>
-    <div class="fleet">
-      <img
-        v-for="fleet in fleets"
-        :key="fleet.label"
-        class="fleet__image"
-        :class="{ 'fleet__image--active': fleet.active }"
-        :src="fleet.image"
-        data-toggle="tooltip"
-        data-placement="bottom"
-        alt="Bairline"
-      />
-    </div>
-
-    <v-container>
-      <v-row dense>
-        <v-col cols="4" :key="1">
-          <v-card color="#385F73" dark :elevation="20">
-            <v-card-title class="headline">Unlimited music now</v-card-title>
-
-            <v-card-subtitle
-              >Listen to your favorite artists and albums whenever and wherever,
-              online and offline.</v-card-subtitle
-            >
-
-            <v-card-actions>
-              <v-btn text>Listen Now</v-btn>
-            </v-card-actions>
-          </v-card>
-        </v-col>
-        <v-col cols="4" :key="2">
-          <v-card color="#1F7087" dark :elevation="20">
-            <v-card-title class="headline">Unlimited music now</v-card-title>
-
-            <v-card-subtitle
-              >Listen to your favorite artists and albums whenever and wherever,
-              online and offline.</v-card-subtitle
-            >
-
-            <v-card-actions>
-              <v-btn text>Listen Now</v-btn>
-            </v-card-actions>
-          </v-card>
-        </v-col>
-      </v-row>
-    </v-container>
+  <div class="fleet">
     <div class="fleet__content">
-      <vue-typer
-        class="fleet__button"
-        text="asd"
-        :erase-on-complete="false"
-        :repeat="1"
-        erase-style="clear"
-        :pre-type-delay="1000"
-        :type-delay="70"
-        caret-animation="smooth"
-      ></vue-typer>
+      <div
+        class="fleet__content__item"
+        v-for="fleet in Object.values(planes)"
+        :key="fleet.name"
+        @click="
+          !fleet.notAvailable
+            ? $router.push({ name: 'plane', params: { id: fleet.name } })
+            : null
+        "
+      >
+        <v-hover v-slot:default="{ hover }">
+          <div>
+            <div
+              v-if="hover && fleet.notAvailable"
+              class="fleet__content__item__overlay"
+            >
+              Coming soon!
+            </div>
+            <img
+              class="fleet__content__item__image"
+              :src="fleet.entryImage"
+              data-toggle="tooltip"
+              data-placement="bottom"
+              alt="Bairline"
+            />
+          </div>
+        </v-hover>
+
+        <v-container class="fleet__content__item__headline">
+          <v-row dense>
+            <v-col>
+              <div>{{ fleet.name }}</div>
+            </v-col>
+          </v-row>
+        </v-container>
+      </div>
     </div>
   </div>
 </template>
 <script>
-import { VueTyper } from 'vue-typer'
+import planes from '@/assets/planes'
 
 export default {
   name: 'fleet',
   data: function() {
     return {
+      planes: planes,
       fleets: [
         {
           image: require(`@/assets/plane/SLT_0826-Bearbeitet.jpg`),
           label: 'Citation X',
-          route: 'fleet',
-          active: true
+          route: { name: 'plane', params: { id: 'Citation X' } }
         },
         {
           image: require(`@/assets/plane/SLT_0809-Bearbeitet.jpg`),
-          label: 'Plane 2',
-          route: 'fleet',
-          active: false
+          label: 'Citation CJ2',
+          route: { name: 'plane', params: { id: 'Citation CJ 2' } }
+        },
+        {
+          image: require(`@/assets/plane/gulfstream500.jpeg`),
+          label: 'Gulfstream 500',
+          route: { name: 'plane', params: { id: 'Gulfstream 500' } },
+          notAvailable: true
         }
       ]
     }
   },
   created: function() {
-    let index = 0
-    setInterval(
-      function() {
-        if (index >= this.fleets.length) {
-          index = 0
-        }
-        for (let i = 0; i < this.fleets.length; i++) {
-          this.fleets[i].active = index === i
-        }
-        index++
-      }.bind(this),
-      5000
-    )
+    console.log(Object.values(planes))
   },
-  components: {
-    VueTyper
-  }
+  components: {}
 }
 </script>
 <style lang="less" scoped>
-.fleet,
-.fleet__content {
+.fleet {
   height: 100vh;
   width: 100%;
   position: relative;
 
-  &__image {
-    position: absolute;
-    left: 0;
-    width: 100%;
-    max-height: 100%;
-    object-fit: cover;
-    object-position: 0 100%;
-    filter: brightness(50%);
-    opacity: 0;
-    transition: opacity 2s;
+  background: var(--v-secondary-darken1);
+  &__content {
+    display: flex;
 
-    &--active {
-      opacity: 1;
+    &__item {
+      position: relative;
+      flex: 1;
+
+      &__image {
+        left: 0;
+        height: 100vh;
+        max-height: 100%;
+        width: 100%;
+        object-fit: cover;
+        object-position: 25% 100%;
+        filter: brightness(50%) blur(1px) grayscale(0.8);
+        transition: filter 1s ease;
+
+        &:hover {
+          filter: brightness(80%) grayscale(0);
+          cursor: pointer;
+        }
+        &__na {
+          filter: brightness(80%) grayscale(0);
+        }
+      }
+      &__overlay {
+        position: absolute;
+        left: 0;
+        right: 0;
+        margin: auto;
+        top: 50%;
+        color: white;
+        z-index: 1;
+        background: #333;
+        width: max-content;
+        padding: 15px;
+        border-radius: 5px;
+      }
+
+      &__headline {
+        position: absolute;
+        width: max-content;
+        left: 0;
+        right: 0;
+        margin: auto;
+        top: 50px;
+        color: white;
+        font-size: 1.8em;
+      }
+      &__button {
+        position: absolute;
+        width: 50%;
+        left: 0;
+        right: 0;
+        margin: auto;
+        bottom: 50px;
+        padding: 0 15px;
+        color: white;
+        font-size: 1.8em;
+      }
+    }
+
+    &__text {
+      width: 200px;
+      position: absolute;
+      right: 10%;
+      top: 30vh;
     }
   }
-
-  &__button {
-    position: absolute;
-    height: 45px;
-    left: 10%;
-    top: 70vh;
-    padding: 0 15px;
-    color: white;
-    font-size: 1.8em;
-  }
-
-  &__text {
-    width: 200px;
-    position: absolute;
-    right: 10%;
-    top: 30vh;
-  }
 }
-
+.headline {
+  justify-content: center;
+}
 .vue-typer span.char.custom.typed {
   color: #009688;
 }

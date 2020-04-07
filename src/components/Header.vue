@@ -4,10 +4,15 @@
       <img class="nav__image" src="@/assets/logo/Logo_small.png" alt />
     </router-link>
     <router-link to="/" color="primary">Home</router-link>
-    <router-link to="/fleet">Fleet</router-link>
+    <router-link :to="{ name: 'fleet' }">Fleet</router-link>
     <router-link to="/aircraft-management">Aircraft Management</router-link>
     <router-link :to="{ name: 'gallery' }">Gallery</router-link>
     <router-link to="/contact">Contact</router-link>
+    <transition name="fade">
+      <div v-if="user.loggedIn" @click="logout()" class="nav__logout">
+        Logout
+      </div>
+    </transition>
     <span>
       <router-link to="/contact" class="nav__mail">
         <v-icon>mdi-email</v-icon>
@@ -17,7 +22,33 @@
 </template>
 
 <script>
-export default {}
+import firebase from 'firebase/app'
+import 'firebase/auth'
+import { mapGetters } from 'vuex'
+
+export default {
+  computed: {
+    // map `this.user` to `this.$store.getters.user`
+    ...mapGetters({
+      user: 'user'
+    })
+  },
+  methods: {
+    logout() {
+      firebase
+        .auth()
+        .signOut()
+        .then(() => {
+          // Sign-out successful.
+          console.log('Logged out')
+          this.$router.replace({ name: 'home' })
+        })
+        .catch(function(error) {
+          // An error happened.
+        })
+    }
+  }
+}
 </script>
 
 <style lang="less">
@@ -37,10 +68,21 @@ export default {}
   &__image {
     width: 100%;
   }
+  &__logout {
+    width: max-content;
+    color: white;
+    font-weight: bold;
+    justify-self: flex-end;
+    margin-right: 15%;
+
+    &:hover {
+      color: var(--v-primary-base);
+      cursor: pointer;
+    }
+  }
 
   & a {
     font-weight: bold;
-    color: #2c3e50;
     float: left;
     display: block;
     color: white;
@@ -79,5 +121,16 @@ export default {}
       transition: transform 175ms cubic-bezier(0.4, 0.25, 0.3, 1);
     }
   }
+}
+
+.fade-enter-active {
+  transition: all 1s ease;
+}
+.fade-leave-active {
+  transition: all 1s ease 0.2s;
+}
+.fade-enter,
+.fade-leave-to {
+  opacity: 0;
 }
 </style>

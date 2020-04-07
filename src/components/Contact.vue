@@ -4,8 +4,9 @@
       {{ $vuetify.lang.t('$vuetify.contact_us.headline') }}
     </h1>
     <div class="contact__content">
-      <div>
-        {{ $vuetify.lang.t('$vuetify.contact_us.telephone') }}: +49 1234 567890
+      <div class="contact__content__telephone">
+        {{ $vuetify.lang.t('$vuetify.contact_us.telephone') }}:
+        <a href="tel:+49 1234 567890">+49 1234 567890</a>
       </div>
       <div>
         {{ $vuetify.lang.t('$vuetify.contact_us.mail') }}:
@@ -55,7 +56,7 @@ export default {
   position: relative;
   background: darkgray;
   background-image: url('/images/world-map.png');
-  height: 100vh;
+  height: 80vh;
   display: grid;
   grid-auto-rows: 40% auto 30%;
   align-items: center;
@@ -71,6 +72,15 @@ export default {
 
     &__mail {
       color: var(--v-primary-base);
+    }
+    &__telephone {
+      & a {
+        color: #2c3e50;
+
+        &:hover {
+          color: var(--v-primary-base);
+        }
+      }
     }
 
     &__social {

@@ -13,7 +13,14 @@ export default new Vuetify({
     },
     themes: {
       light: {
-        primary: colors.red.darken1, // #E53935
+        primary: {
+          base: colors.red.base,
+          darken1: colors.red.darken1,
+          darken2: colors.red.darken2,
+          darken3: colors.red.darken3,
+          darken4: colors.red.darken4
+        },
+        anchor: colors.shades.white,
         secondary: '#424242',
         accent: '#82B1FF',
         error: '#FF5252',

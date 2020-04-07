@@ -60,6 +60,9 @@ export default {
     content:
       'Although an aircraft is not fully equipped like a restaurant, we dedicate our service to a perfect dining experience over the clouds. Low total hour aircrafts and modern interiors combined with high class catering gives you the luxury you are expecting when choosing a business jet.'
   },
+  fleet: {
+    headline: 'Our Fleet'
+  },
   contact_us: {
     headline: 'Contact us',
     telephone: 'Telephone',
