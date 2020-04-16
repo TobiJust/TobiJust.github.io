@@ -43,6 +43,8 @@ export default {}
 </script>
 
 <style lang="less">
+@import '../assets/less/structure';
+
 .footer {
   background-color: #333;
   padding-bottom: 25px;
@@ -53,11 +55,18 @@ export default {}
     overflow: hidden;
     width: 100vw;
     display: grid;
-    grid-template-columns: max-content max-content max-content max-content max-content;
     align-items: center;
     justify-content: center;
     z-index: 1;
-    height: 10vh;
+
+    @media @tablet {
+      height: 10vh;
+      grid-template-columns: max-content max-content max-content max-content max-content;
+    }
+
+    @media @mobile {
+      padding: 15px 0;
+    }
 
     & a {
       float: left;
@@ -74,10 +83,13 @@ export default {}
   }
   &__legal {
     display: grid;
-    grid-template-columns: max-content max-content max-content;
     align-items: center;
     justify-content: center;
-    height: 5vh;
+
+    @media @tablet {
+      height: 5vh;
+      grid-template-columns: max-content max-content max-content;
+    }
 
     & a {
       font-size: 0.8em;
@@ -95,7 +107,9 @@ export default {}
   }
   &__copyright {
     margin: 0 10%;
-    height: 5vh;
+    @media @tablet {
+      height: 5vh;
+    }
     color: white;
     font-size: 0.8em;
     line-height: 1.5em;

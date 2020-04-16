@@ -3,7 +3,7 @@
     <router-link to="/">
       <img class="nav__image" src="@/assets/logo/Logo_small.png" alt />
     </router-link>
-    <router-link to="/" color="primary">Home</router-link>
+    <router-link to="/home" color="primary">Home</router-link>
     <router-link :to="{ name: 'fleet' }">Fleet</router-link>
     <router-link to="/aircraft-management">Aircraft Management</router-link>
     <router-link :to="{ name: 'gallery' }">Gallery</router-link>
@@ -40,7 +40,6 @@ export default {
         .signOut()
         .then(() => {
           // Sign-out successful.
-          console.log('Logged out')
           this.$router.replace({ name: 'home' })
         })
         .catch(function(error) {
@@ -51,7 +50,9 @@ export default {
 }
 </script>
 
-<style lang="less">
+<style lang="less" scoped>
+@import '../assets/less/structure';
+
 .nav {
   padding: 0;
   margin: 0;
@@ -63,7 +64,11 @@ export default {
   grid-template-columns: 15% max-content max-content max-content max-content max-content auto;
   align-items: center;
   z-index: 1;
-  height: 10vh;
+  height: 5vh;
+
+  @media @medium {
+    height: 10vh;
+  }
 
   &__image {
     width: 100%;
@@ -73,7 +78,7 @@ export default {
     color: white;
     font-weight: bold;
     justify-self: flex-end;
-    margin-right: 15%;
+    margin-right: 7rem;
 
     &:hover {
       color: var(--v-primary-base);
@@ -95,15 +100,20 @@ export default {
     color: var(--v-primary-base);
   }
 
-  & a.router-link-exact-active {
+  & a.router-link-exact-active,
+  & a.router-link-active {
     color: var(--v-primary-base);
   }
   &__mail {
     position: fixed;
-    top: 2vh;
+    top: 1vh;
     right: 3.75rem;
     transform: translateX(50%);
     z-index: 2;
+
+    @media @medium {
+      top: 2vh;
+    }
 
     :hover::before {
       transform: scale(1.2);

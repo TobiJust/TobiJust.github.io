@@ -1,5 +1,10 @@
 <template>
-  <v-form ref="form" v-model="valid" lazy-validation>
+  <v-form
+    ref="form"
+    v-model="valid"
+    lazy-validation
+    @keyup.native.enter="valid && submit($event)"
+  >
     <v-container>
       <v-row>
         <v-col cols="12" md="4" offset-md="4">
@@ -19,7 +24,7 @@
             v-model="form.password2"
             :append-icon="show2 ? 'mdi-eye' : 'mdi-eye-off'"
             :rules="[rules.required, rules.min, rules.match]"
-            :type="show ? 'text' : 'password'"
+            :type="show2 ? 'text' : 'password'"
             name="input-10-1"
             placeholder=" Confirm password"
             outlined
@@ -35,7 +40,7 @@
             :disabled="!valid"
             outlined
             color="#333"
-            class="login__button mr-4"
+            class="login__button"
             @click="submit"
           >
             Submit

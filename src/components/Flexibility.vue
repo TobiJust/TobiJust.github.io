@@ -25,6 +25,8 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="less" scoped>
+@import '../assets/less/structure';
+
 .flexibility {
   background: var(--v-primary-darken3);
   line-height: 1.8em;
@@ -32,20 +34,26 @@ export default {
   display: flex;
   align-items: center;
   transition: transform 2s ease 1s;
+  @media @mobile {
+    flex-direction: column;
+  }
 
   &:hover {
-    transform: translateX(-50vw);
+    @media @tablet {
+      transform: translateX(-50vw);
+    }
     transition: transform 2s ease 0s;
   }
-  &__headline {
-    margin-bottom: 25px;
-  }
   &__content {
-    width: 50vw;
     padding: 30px;
+    @media @tablet {
+      width: 50vw;
+    }
   }
   &__image {
-    width: 50vw;
+    @media @tablet {
+      width: 50vw;
+    }
     height: 100%;
     display: flex;
 

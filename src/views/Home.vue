@@ -1,27 +1,29 @@
 <template>
   <div class="home">
     <section class="cover">
-      <img
-        v-for="logo in logos"
-        :key="logo.label"
-        class="home__cover__image"
-        :class="{ 'home__cover__image--active': logo.active }"
-        :src="logo.image"
-        data-toggle="tooltip"
-        data-placement="bottom"
-        alt="Bairline"
-      />
-      <div
-        class="home__cover__button"
-        @mouseover="hover = true"
-        @mouseleave="hover = false"
-      >
-        <router-link :to="{ name: currentLogo.route }">
-          {{ currentLogo.label }}
-          <v-icon large class="home__cover__button__icon" v-show="hover">
-            mdi-airplane-takeoff
-          </v-icon>
-        </router-link>
+      <div class="cover__wrapper">
+        <img
+          v-for="logo in logos"
+          :key="logo.label"
+          class="home__cover__image"
+          :class="{ 'home__cover__image--active': logo.active }"
+          :src="logo.image"
+          data-toggle="tooltip"
+          data-placement="bottom"
+          alt="Bairline"
+        />
+        <div
+          class="home__cover__button"
+          @mouseover="hover = true"
+          @mouseleave="hover = false"
+        >
+          <router-link :to="{ name: currentLogo.route }">
+            {{ currentLogo.label }}
+            <v-icon large class="home__cover__button__icon" v-show="hover">
+              mdi-airplane-takeoff
+            </v-icon>
+          </router-link>
+        </div>
       </div>
     </section>
     <section class="intro">
@@ -55,15 +57,15 @@ export default {
       hover: false,
       logos: [
         {
-          image: require(`@/assets/web/SLT_0779-Bearbeitet.jpg`),
-          label: 'Home',
-          route: 'home',
-          active: true
-        },
-        {
           image: require(`@/assets/web/SLT_0785-Bearbeitet.jpg`),
           label: 'Fleet',
           route: 'fleet',
+          active: true
+        },
+        {
+          image: require(`@/assets/web/SLT_0779-Bearbeitet.jpg`),
+          label: 'Aircraft Management',
+          route: 'aircraft-management',
           active: false
         }
       ]
@@ -93,13 +95,27 @@ export default {
 </script>
 
 <style lang="less" scoped>
+@import '../assets/less/structure';
+
 section {
-  position: relative;
-  display: flex;
+  @media @medium {
+    position: relative;
+    display: flex;
+  }
 }
 .cover,
 .intro {
-  height: 100vh;
+  height: 100%;
+  @media @medium {
+    height: 90vh;
+  }
+}
+
+.cover__wrapper {
+  width: 100%;
+  height: 90vh;
+  display: flex;
+  position: relative;
 }
 
 .home {
@@ -108,9 +124,9 @@ section {
     &__image {
       position: absolute;
       width: 100%;
-      max-height: 100%;
+      height: 100%;
       object-fit: cover;
-      object-position: 0 100%;
+      object-position: center;
       filter: brightness(50%);
       opacity: 0;
       transition: opacity 2s;
@@ -131,7 +147,12 @@ section {
       position: absolute;
       height: 45px;
       left: 10%;
-      top: 70vh;
+      bottom: 10%;
+
+      @media @mobile {
+        left: 0;
+        right: 0;
+      }
 
       a {
         font-size: 1.8em;
@@ -140,11 +161,16 @@ section {
         position: relative;
         z-index: 2;
         padding: 10px 40px;
-        background: var(--v-primary-base);
-        opacity: 0.6;
+        background: rgba(255, 255, 255, 0.2);
+        border: 2px solid white;
+
+        @media @mobile {
+          font-size: 1em;
+        }
 
         &:hover {
           padding-right: 20px;
+          opacity: 0.9;
         }
       }
       &__icon {
@@ -160,7 +186,7 @@ section {
   color: white;
 
   &__headline {
-    margin: 10vh 0;
+    padding: 10vh 0;
     width: 100vw;
   }
 }

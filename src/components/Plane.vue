@@ -1,13 +1,15 @@
 <template>
   <div class="plane">
-    <h1 class="plane__headline" style>{{ plane.name }}</h1>
-    <div>
+    <div class="plane__container">
       <v-skeleton-loader
         :loading="!plane.coverImage"
         transition="scale-transition"
         type="image"
       >
-        <img class="plane__image" :src="plane.coverImage" alt="" />
+        <div style="position: relative;">
+          <img class="plane__image" :src="plane.coverImage" alt="" />
+          <h1 class="plane__headline" style>{{ plane.name }}</h1>
+        </div>
       </v-skeleton-loader>
       <h2 class="headline">Our most flexible plane</h2>
       <hr class="plane__divider" />
@@ -26,7 +28,7 @@
       <hr class="plane__divider" />
       <v-container>
         <v-row dense style="position: relative;">
-          <v-col cols="6">
+          <v-col :cols="$vuetify.breakpoint.smAndDown ? 12 : 6">
             <div class="plane__wrapper">
               <v-timeline dense>
                 <v-timeline-item
@@ -37,16 +39,16 @@
                   fill-dot
                 >
                   <v-card :color="item.color" dark>
-                    <v-card-title>{{
-                      plane.facts[item.label] || ''
-                    }}</v-card-title>
+                    <v-card-title class="plane__wrapper__title">
+                      {{ plane.facts[item.label] || '' }}
+                    </v-card-title>
                   </v-card>
                 </v-timeline-item>
               </v-timeline>
             </div>
           </v-col>
-          <v-col cols="6">
-            <div class="plane__wrapper">
+          <v-col :cols="$vuetify.breakpoint.smAndDown ? 12 : 6">
+            <div class="plane__wrapper plane__wrapper--reverse">
               <v-timeline dense reverse>
                 <v-timeline-item
                   v-for="(item, i) in specs"
@@ -56,7 +58,9 @@
                   fill-dot
                 >
                   <v-card :color="item.color" dark>
-                    <v-card-title>{{ plane.specs[item.label] }}</v-card-title>
+                    <v-card-title class="plane__wrapper__title">
+                      {{ plane.specs[item.label] }}
+                    </v-card-title>
                   </v-card>
                 </v-timeline-item>
               </v-timeline>
@@ -171,10 +175,16 @@ export default {
 </script>
 
 <style lang="less" scoped>
+@import '../assets/less/structure';
+
 .plane {
   height: 100%;
   display: flex;
   position: relative;
+
+  &__container {
+    width: 100%;
+  }
 
   &__divider {
     height: 1px;
@@ -192,15 +202,35 @@ export default {
     margin: auto;
     z-index: 1;
     color: white;
+
+    @media @mobile {
+      font-size: 1.5em;
+    }
   }
 
   &__wrapper {
-    margin: 0 25px;
+    @media @tablet {
+      margin: 0 25px;
+    }
+    transform: translateX(-15px);
+
+    &--reverse {
+      transform: translateX(15px);
+    }
+
+    &__title {
+      font-size: 12px;
+    }
   }
   &__floorplan {
     &__image {
       margin: 25px 0;
       width: 80%;
+    }
+  }
+  &__range {
+    &__image {
+      max-width: 100%;
     }
   }
   &__link {
@@ -216,12 +246,15 @@ export default {
 
   &__image {
     left: 0;
-    height: 90vh;
     max-height: 100%;
     width: 100%;
     object-fit: cover;
     object-position: 25% 10%;
     filter: brightness(80%);
+
+    @media @tablet {
+      height: 90vh;
+    }
   }
 
   &__facts {

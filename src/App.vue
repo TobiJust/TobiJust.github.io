@@ -1,7 +1,8 @@
 <template>
   <v-app>
     <div id="app">
-      <Header></Header>
+      <HeaderMobile v-if="$vuetify.breakpoint.smAndDown"></HeaderMobile>
+      <Header v-else></Header>
       <div class="main">
         <transition name="component-fade" mode="out-in">
           <router-view />
@@ -15,12 +16,14 @@
 <script>
 import Contact from '@/components/Contact.vue'
 import Header from '@/components/Header.vue'
+import HeaderMobile from '@/components/HeaderMobile.vue'
 import Footer from '@/components/Footer.vue'
 
 export default {
   components: {
     Contact,
     Header,
+    HeaderMobile,
     Footer
   }
 }
@@ -43,6 +46,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+  position: relative;
 }
 a {
   text-decoration: none;
@@ -51,7 +55,7 @@ a {
   transition: all 1s ease;
 }
 .component-fade-leave-active {
-  transition: all 1s ease 0.2s;
+  transition: all 1s ease;
 }
 .component-fade-enter {
   opacity: 0;

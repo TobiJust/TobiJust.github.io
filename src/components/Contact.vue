@@ -52,6 +52,8 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="less" scoped>
+@import '../assets/less/structure';
+
 .contact {
   position: relative;
   background: darkgray;
@@ -84,8 +86,18 @@ export default {
     }
 
     &__social {
+      @media @mobile {
+        display: flex;
+        justify-content: space-evenly;
+      }
       a {
-        margin-right: 50px;
+        @media @tablet {
+          margin-right: 50px;
+
+          &:last-child {
+            margin-right: 0;
+          }
+        }
         text-decoration: none;
       }
       &__icon:hover {

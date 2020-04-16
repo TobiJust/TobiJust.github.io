@@ -9,7 +9,7 @@
             v-for="(n, index) in images"
             :key="n.path"
             class="d-flex child-flex"
-            cols="4"
+            :cols="$vuetify.breakpoint.smAndDown ? 6 : 4"
           >
             <!-- <v-hover v-slot:default="{ hover }"> -->
             <v-card
@@ -42,7 +42,7 @@
             v-if="user.loggedIn"
             :key="images.length"
             class="d-flex child-flex"
-            cols="4"
+            :cols="$vuetify.breakpoint.smAndDown ? 12 : 4"
           >
             <v-card
               class="mx-auto gallery__upload"

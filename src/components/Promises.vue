@@ -35,17 +35,22 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="less" scoped>
+@import '../assets/less/structure';
+
 .promises {
   background: var(--v-secondary-darken1);
   line-height: 1.8em;
   color: white;
+  overflow: hidden;
 
   &__headline {
-    margin: 10vh 0;
+    padding: 10vh 0;
     width: 100vw;
   }
   &__item {
-    width: 150vw;
+    @media @tablet {
+      width: 150vw;
+    }
   }
 }
 </style>

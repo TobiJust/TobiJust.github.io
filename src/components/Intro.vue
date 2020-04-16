@@ -7,6 +7,14 @@
     <p class="intro__content">
       {{ $vuetify.lang.t('$vuetify.intro.content') }}
     </p>
+    <div class="intro__tagline">
+      <h4>
+        {{ $vuetify.lang.t('$vuetify.intro.taglineHeadline') }}
+      </h4>
+      <p class="intro__tagline__content">
+        {{ $vuetify.lang.t('$vuetify.intro.tagline') }}
+      </p>
+    </div>
   </div>
 </template>
 
@@ -21,17 +29,51 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="less" scoped>
+@import '../assets/less/structure';
+
 .intro {
   background: darkgrey;
   height: 100vh;
-  padding: 0 50px;
   line-height: 1.8em;
+  @media @mobile {
+    padding-bottom: 25px;
+  }
 
   &__headline {
     margin-bottom: 25px;
   }
   &__image {
-    margin: -150px 0;
+    @media @mobile {
+      width: 100%;
+      margin: -50px 0;
+    }
+
+    @media @tablet {
+      margin: -150px 0;
+    }
+  }
+  &__content {
+    padding: 0 50px;
+    font-size: 1em;
+
+    @media @mobile {
+      font-size: 14px;
+    }
+  }
+  &__tagline {
+    margin-top: 85px;
+    @media @tablet {
+      margin: 0 150px;
+    }
+
+    &__content {
+      margin-top: 15px;
+
+      @media @mobile {
+        font-size: 14px;
+        padding: 0 50px;
+      }
+    }
   }
 }
 </style>

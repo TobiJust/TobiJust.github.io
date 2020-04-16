@@ -68,35 +68,47 @@ export default {
       ]
     }
   },
-  created: function() {
-    console.log(Object.values(planes))
-  },
+  created: function() {},
   components: {}
 }
 </script>
 <style lang="less" scoped>
+@import '../assets/less/structure';
+
 .fleet {
   height: 100vh;
   width: 100%;
   position: relative;
 
+  @media @mobile {
+    height: 100%;
+  }
+
   background: var(--v-secondary-darken1);
   &__content {
     display: flex;
 
+    @media @mobile {
+      flex-direction: column;
+    }
+
     &__item {
       position: relative;
       flex: 1;
+      height: 100%;
 
       &__image {
         left: 0;
-        height: 100vh;
-        max-height: 100%;
+        height: 100%;
         width: 100%;
         object-fit: cover;
-        object-position: 25% 100%;
+        object-position: center;
         filter: brightness(50%) blur(1px) grayscale(0.8);
         transition: filter 1s ease;
+
+        @media @medium {
+          height: 100vh;
+        }
 
         &:hover {
           filter: brightness(80%) grayscale(0);

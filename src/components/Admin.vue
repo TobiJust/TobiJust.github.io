@@ -1,5 +1,10 @@
 <template>
-  <v-form ref="form" v-model="valid" lazy-validation>
+  <v-form
+    ref="form"
+    v-model="valid"
+    lazy-validation
+    @keyup.native.enter="valid && submit($event)"
+  >
     <v-container>
       <v-row>
         <v-col cols="12" md="4" offset-md="4">

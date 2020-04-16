@@ -29,28 +29,41 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="less" scoped>
+@import '../assets/less/structure';
+
 .personality {
   background: var(--v-primary-darken4);
   line-height: 1.8em;
   color: white;
   display: flex;
   align-items: center;
-  transform: translateX(-50vw);
   transition: transform 2s ease 2s;
+  @media @mobile {
+    flex-direction: column-reverse;
+  }
+  @media @tablet {
+    transform: translateX(-50vw);
+  }
 
   &:hover {
-    transform: translateX(0);
+    @media @tablet {
+      transform: translateX(0px);
+    }
     transition: transform 2s ease 0s;
   }
   &__headline {
     margin-bottom: 25px;
   }
   &__content {
-    width: 50vw;
     padding: 30px;
+    @media @tablet {
+      width: 50vw;
+    }
   }
   &__image {
-    width: 50vw;
+    @media @tablet {
+      width: 50vw;
+    }
     height: 100%;
     display: flex;
 
