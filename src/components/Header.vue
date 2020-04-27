@@ -64,10 +64,10 @@ export default {
   grid-template-columns: 15% max-content max-content max-content max-content max-content auto;
   align-items: center;
   z-index: 1;
-  height: 5vh;
+  min-height: 5vh;
 
   @media @medium {
-    height: 10vh;
+    min-height: 10vh;
   }
 
   &__image {

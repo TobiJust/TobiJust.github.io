@@ -34,7 +34,7 @@ export default {
   fileInput: { counter: '{0} files', counterSize: '{0} files ({1} in total)' },
   timePicker: { am: 'AM', pm: 'PM' },
   intro: {
-    headline: 'BAIRLINE Fluggesellschaft m.b.H. & Co KG',
+    headline: 'BAIRLINE Fluggesellschaft mbh & Co. KG',
     content:
       'With a concept made in Bavaria, Bairline represents what Business Aviation is meant to be! You want to go on holiday or just need to get to your next business meeting? You are looking for an intercontinental flight or the quickest way across Europe? We offer the right aircraft for any of your demands.',
     taglineHeadline: 'Shortest communication line in the industry',
@@ -61,11 +61,14 @@ export default {
       'Although an aircraft is not fully equipped like a restaurant, we dedicate our service to a perfect dining experience over the clouds. Low total hour aircrafts and modern interiors combined with high class catering gives you the luxury you are expecting when choosing a business jet.'
   },
   fleet: {
-    headline: 'Our Fleet'
+    headline: `Our Fleet - It\'ll blow your mind`
   },
   contact_us: {
     headline: 'Contact us',
     telephone: 'Telephone',
     mail: 'Email'
+  },
+  catering: {
+    button: 'Catering'
   }
 }

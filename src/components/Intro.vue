@@ -8,9 +8,7 @@
       {{ $vuetify.lang.t('$vuetify.intro.content') }}
     </p>
     <div class="intro__tagline">
-      <h4>
-        {{ $vuetify.lang.t('$vuetify.intro.taglineHeadline') }}
-      </h4>
+      <h4>{{ $vuetify.lang.t('$vuetify.intro.taglineHeadline') }}</h4>
       <p class="intro__tagline__content">
         {{ $vuetify.lang.t('$vuetify.intro.tagline') }}
       </p>
@@ -35,7 +33,9 @@ export default {
   background: darkgrey;
   height: 100vh;
   line-height: 1.8em;
-  @media @mobile {
+  padding-bottom: 25px;
+
+  @media @mobile, @mobileHeight {
     padding-bottom: 25px;
   }
 
@@ -43,6 +43,7 @@ export default {
     margin-bottom: 25px;
   }
   &__image {
+    max-width: 100%;
     @media @mobile {
       width: 100%;
       margin: -50px 0;
@@ -51,12 +52,17 @@ export default {
     @media @tablet {
       margin: -150px 0;
     }
+
+    @media @mobileHeight {
+      width: 70%;
+      margin: -100px 0;
+    }
   }
   &__content {
     padding: 0 50px;
     font-size: 1em;
 
-    @media @mobile {
+    @media @mobile, @mobileHeight {
       font-size: 14px;
     }
   }
@@ -64,12 +70,13 @@ export default {
     margin-top: 85px;
     @media @tablet {
       margin: 0 150px;
+      padding-bottom: 50px;
     }
 
     &__content {
       margin-top: 15px;
 
-      @media @mobile {
+      @media @mobile, @mobileHeight {
         font-size: 14px;
         padding: 0 50px;
       }

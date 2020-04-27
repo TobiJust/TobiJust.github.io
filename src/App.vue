@@ -1,7 +1,7 @@
 <template>
   <v-app>
     <div id="app">
-      <HeaderMobile v-if="$vuetify.breakpoint.smAndDown"></HeaderMobile>
+      <HeaderMobile v-if="$vuetify.breakpoint.mdAndDown"></HeaderMobile>
       <Header v-else></Header>
       <div class="main">
         <transition name="component-fade" mode="out-in">
@@ -64,5 +64,9 @@ a {
 .component-fade-leave-to {
   opacity: 0;
   transform: translateX(100%);
+}
+
+.v-dialog {
+  box-shadow: none !important;
 }
 </style>

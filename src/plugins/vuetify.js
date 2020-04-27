@@ -18,11 +18,15 @@ export default new Vuetify({
           darken1: colors.red.darken1,
           darken2: colors.red.darken2,
           darken3: colors.red.darken3,
-          darken4: colors.red.darken4
+          darken4: colors.red.darken4,
+          lighten1: colors.red.lighten1,
+          lighten2: colors.red.lighten2,
+          lighten3: colors.red.lighten3,
+          lighten4: colors.red.lighten4
         },
         anchor: colors.shades.white,
         secondary: '#424242',
-        accent: '#82B1FF',
+        accent: '#2196f3',
         error: '#FF5252',
         info: '#2196F3',
         success: '#4CAF50',

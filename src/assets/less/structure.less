@@ -1,4 +1,4 @@
-@screen-xs: 600px;
+@screen-xs: 959px;
 @screen-sm: 960px;
 @screen-md: 1264px;
 @screen-lg: 1904px;
@@ -7,3 +7,7 @@
 @tablet: ~'only screen and (min-width: @{screen-sm})';
 @medium: ~'only screen and (min-width: @{screen-md})';
 @desktop: ~'only screen and (min-width: @{screen-lg})';
+
+@mobileHeight:  ~'only screen and (max-height: 420px)'; 
+
+@mobileDevice: ~'only screen and (max-width: @{screen-xs}) and (max-height: 420px)';

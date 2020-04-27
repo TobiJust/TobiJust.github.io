@@ -1,5 +1,18 @@
 <template>
   <v-row class="gallery">
+    <v-dialog v-model="dialog" max-width="100%" overlay-opacity="0.99">
+      <div>
+        <v-carousel hide-delimiters v-model="model">
+          <v-carousel-item v-for="(item, i) in images" :key="i">
+            <v-img :height="'100%'" contain :src="item.url.i"></v-img>
+          </v-carousel-item>
+        </v-carousel>
+
+        <div class="gallery__dialog__close" @click="dialog = false">
+          <v-icon>mdi-close</v-icon>
+        </div>
+      </div>
+    </v-dialog>
     <v-col cols="12" sm="12">
       <v-container fluid>
         <h1 class="gallery__headline">Gallery</h1>
@@ -11,26 +24,15 @@
             class="d-flex child-flex"
             :cols="$vuetify.breakpoint.smAndDown ? 6 : 4"
           >
-            <!-- <v-hover v-slot:default="{ hover }"> -->
             <v-card
               class="mx-auto"
               color="grey lighten-4"
               :width="'100%'"
               max-width="600"
+              @click.stop="openDialog(index)"
             >
-              <v-img :aspect-ratio="16 / 9" :src="n.url.i">
-                <!-- <v-expand-transition>
-                    <div
-                      v-if="hover"
-                      class="card-overlay"
-                      style="height: 100%; left: 0"
-                    >
-                      Citation X
-                    </div>
-                  </v-expand-transition> -->
-              </v-img>
+              <v-img :aspect-ratio="16 / 9" :src="n.url.i"> </v-img>
             </v-card>
-            <!-- </v-hover> -->
 
             <span v-if="user.loggedIn" @click="deleteItem(n.path, index)">
               <div class="gallery__item__delete">
@@ -67,16 +69,15 @@
                   @change="processFile($event)"
                 />
                 <template v-for="(file, index) in files">
-                  <v-chip v-if="index < 2" :key="index" class="ma-2">
-                    {{ file.name }} ({{ formatBytes(file.size) }})
-                  </v-chip>
+                  <v-chip v-if="index < 2" :key="index" class="ma-2"
+                    >{{ file.name }} ({{ formatBytes(file.size) }})</v-chip
+                  >
                   <span
                     v-else-if="index === 2"
                     :key="index"
                     class="overline grey--text text--darken-3 mx-2"
+                    >+{{ files.length - 2 }} File(s)</span
                   >
-                    +{{ files.length - 2 }} File(s)
-                  </span>
                 </template>
                 <p>
                   {{ files.length }} files ({{ formatBytes(totalFileBytes) }} in
@@ -110,7 +111,10 @@ export default {
   name: 'Intro',
   data: () => {
     return {
-      files: []
+      files: [],
+      dialog: false,
+      overlayImage: '',
+      model: 0
     }
   },
   mounted() {
@@ -149,6 +153,10 @@ export default {
         e = ['Bytes', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'],
         f = Math.floor(Math.log(a) / Math.log(c))
       return parseFloat((a / Math.pow(c, f)).toFixed(d)) + ' ' + e[f]
+    },
+    openDialog(index) {
+      this.dialog = true
+      this.model = index
     }
   }
 }
@@ -157,6 +165,8 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="less" scoped>
 .gallery {
+  max-width: 100%;
+  min-height: 90vh;
   &__headline {
     margin-bottom: 25px;
     font-size: 3em;
@@ -217,6 +227,27 @@ export default {
       }
       &__wrapper {
         justify-content: center;
+      }
+    }
+  }
+
+  &__dialog {
+    &__close {
+      position: absolute;
+      top: 2%;
+      right: 2%;
+
+      :hover::before {
+        background-color: rgba(211, 211, 211, 0.1);
+      }
+      ::before {
+        cursor: pointer;
+        color: lightgray;
+        display: block;
+        padding: 3px;
+        border-radius: 100%;
+        transform: scale(1.2);
+        transition: transform 175ms cubic-bezier(0.4, 0.25, 0.3, 1);
       }
     }
   }

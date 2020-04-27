@@ -44,10 +44,17 @@ export default {
   overflow: hidden;
 
   &__headline {
-    padding: 10vh 0;
+    padding: 5vh 0;
     width: 100vw;
+
+    @media @medium {
+      padding: 10vh 0;
+    }
   }
   &__item {
+    @media @mobileDevice {
+      width: 100vw;
+    }
     @media @tablet {
       width: 150vw;
     }

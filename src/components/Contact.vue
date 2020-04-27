@@ -6,7 +6,7 @@
     <div class="contact__content">
       <div class="contact__content__telephone">
         {{ $vuetify.lang.t('$vuetify.contact_us.telephone') }}:
-        <a href="tel:+49 1234 567890">+49 1234 567890</a>
+        <a href="tel:+49 (0)30 8631 8972">+49 (0)30 8631 8972</a>
       </div>
       <div>
         {{ $vuetify.lang.t('$vuetify.contact_us.mail') }}:
@@ -74,13 +74,17 @@ export default {
 
     &__mail {
       color: var(--v-primary-base);
+
+      &:hover {
+        color: var(--v-primary-darken2);
+      }
     }
     &__telephone {
       & a {
-        color: #2c3e50;
+        color: var(--v-primary-base);
 
         &:hover {
-          color: var(--v-primary-base);
+          color: var(--v-primary-darken2);
         }
       }
     }

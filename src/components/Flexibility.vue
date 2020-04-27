@@ -1,6 +1,6 @@
 <template>
   <div class="flexibility">
-    <div class="flexibility__content">
+    <div class="flexibility__content" v-if="$vuetify.breakpoint.mdAndUp">
       <h1 class="flexibility__headline">
         {{ $vuetify.lang.t('$vuetify.flexibility.headline') }}
       </h1>
@@ -9,6 +9,9 @@
       <img class="flexibility__image__img" src="@/assets/flexibility.jpg" alt />
     </div>
     <div class="flexibility__content">
+      <h1 class="flexibility__content__headline">
+        {{ $vuetify.lang.t('$vuetify.flexibility.headline') }}
+      </h1>
       {{ $vuetify.lang.t('$vuetify.flexibility.content') }}
     </div>
   </div>
@@ -38,6 +41,10 @@ export default {
     flex-direction: column;
   }
 
+  @media @mobileDevice {
+    flex-direction: column;
+  }
+
   &:hover {
     @media @tablet {
       transform: translateX(-50vw);
@@ -45,9 +52,26 @@ export default {
     transition: transform 2s ease 0s;
   }
   &__content {
-    padding: 30px;
+    padding: 20px;
     @media @tablet {
       width: 50vw;
+    }
+    @media @medium {
+      padding: 30px;
+    }
+
+    @media @mobileHeight {
+      width: 50vw;
+      font-size: 12px;
+      line-height: 1.8em;
+    }
+
+    @media @mobileDevice {
+      width: 100%;
+    }
+
+    &__headline {
+      margin-bottom: 25px;
     }
   }
   &__image {
@@ -58,7 +82,7 @@ export default {
     display: flex;
 
     &__img {
-      height: auto;
+      height: 100%;
       width: 100%;
     }
   }

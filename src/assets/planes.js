@@ -1,9 +1,13 @@
 const planes = {
   'Citation X': {
     name: 'Citation X',
+    tagline: 'The fastest business jet in the world',
+    content:
+      'You would like to get as fast as possible to your destination? Then this aircraft is definitely the right choice. Flying almost at the speed of sound, the countries below you are changing in no time.',
     entryImage: require(`@/assets/plane/SLT_0826-Bearbeitet.jpg`),
     coverImage: require(`@/assets/plane/citationX.jpg`),
     floorplan: require(`@/assets/plane/floorplan_citationX.png`),
+    floorplan_night: require(`@/assets/plane/floorplan_citationX_night.png`),
     tourUrl: 'https://jetpano.eu/bairline/hub/tour.html',
     rangeMap: require(`@/assets/maps/map-citationX.gif`),
     specs: {
@@ -13,10 +17,10 @@ const planes = {
       range: 'Flight Range: 3.000 nm / 5.556 km'
     },
     facts: {
-      passengers: 'Up to 5 passengers',
+      passengers: 'Up to 9 passengers',
       luggage: 'Luggage Capactity: 70.63 ft³ / 2 m³',
       manufactured: 'Manufactured 2007',
-      speed: 'Cruise Speed: Mach 0.92 / 1000 kph'
+      speed: 'Cruise Speed: Mach 0.92 / 1.000 kph'
     },
     factSheet: '/downloads/CITX Fact Sheet.pdf',
     gallery: [
@@ -30,9 +34,14 @@ const planes = {
   },
   'Citation CJ 2': {
     name: 'Citation CJ 2',
-    entryImage: require(`@/assets/plane/SLT_0809-Bearbeitet.jpg`),
+    tagline: 'The light jet for medium-haul flights',
+    content:
+      'This aircraft gives you agility at a highly competitive pricing. Quick turnarounds and good performance can be your partner in the air when choosing special destinations.',
+    entryImage: require(`@/assets/web/CJ2/SLT_5975-Bearbeitet.jpg`),
+    coverImage: require(`@/assets/web/CJ2/SLT_5987-Bearbeitet.jpg`),
     floorplan: require(`@/assets/plane/floorplan_citationCJ2.png`),
     tourUrl: 'https://jetpano.eu/bairline/fux/tour.html',
+    rangeMap: require(`@/assets/maps/map-citationCJ2.gif`),
     specs: {
       height: 'Height: 4.75 ft / 1.45 m',
       width: 'Width: 4.83 ft / 1.47 m',
@@ -42,20 +51,23 @@ const planes = {
     facts: {
       passengers: 'Up to 6 passengers',
       luggage: 'Luggage Capactity: 70 ft³ / 1.98 m³',
-      manufactured: 'Manufactured 2007',
+      manufactured: 'Manufactured 2002',
       speed: 'Cruise Speed: Mach 0.72 / 764 kph'
     },
     factSheet: '/downloads/Fact sheet OEFUX.pdf',
     gallery: [
-      require('@/assets/plane/DSC_0351.jpeg'),
-      require('@/assets/plane/DSC_0352.jpeg'),
-      require('@/assets/plane/DSC_0353.jpeg')
+      require('@/assets/web/CJ2/SLT_5919-Bearbeitet.jpg'),
+      require('@/assets/web/CJ2/SLT_5935-Bearbeitet.jpg'),
+      require('@/assets/web/CJ2/SLT_5949-Bearbeitet.jpg'),
+      require('@/assets/web/CJ2/SLT_5953-Bearbeitet.jpg'),
+      require('@/assets/web/CJ2/SLT_5959-Bearbeitet.jpg'),
+      require('@/assets/web/CJ2/SLT_5968-Bearbeitet.jpg')
     ]
   },
   'Gulfstream 500': {
-    name: '',
+    name: 'Coming Soon!',
     entryImage: require(`@/assets/plane/gulfstream500.jpeg`),
-    coverImage: require(`@/assets/plane/citationX.jpg`),
+    coverImage: require(`@/assets/plane/gulfstream500.jpeg`),
     notAvailable: true
   }
 }

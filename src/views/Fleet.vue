@@ -17,7 +17,7 @@
               v-if="hover && fleet.notAvailable"
               class="fleet__content__item__overlay"
             >
-              Coming soon!
+              Not available yet!
             </div>
             <img
               class="fleet__content__item__image"
@@ -29,7 +29,10 @@
           </div>
         </v-hover>
 
-        <v-container class="fleet__content__item__headline">
+        <v-container
+          class="fleet__content__item__headline"
+          :class="{ 'not-available': fleet.notAvailable }"
+        >
           <v-row dense>
             <v-col>
               <div>{{ fleet.name }}</div>
@@ -47,25 +50,7 @@ export default {
   name: 'fleet',
   data: function() {
     return {
-      planes: planes,
-      fleets: [
-        {
-          image: require(`@/assets/plane/SLT_0826-Bearbeitet.jpg`),
-          label: 'Citation X',
-          route: { name: 'plane', params: { id: 'Citation X' } }
-        },
-        {
-          image: require(`@/assets/plane/SLT_0809-Bearbeitet.jpg`),
-          label: 'Citation CJ2',
-          route: { name: 'plane', params: { id: 'Citation CJ 2' } }
-        },
-        {
-          image: require(`@/assets/plane/gulfstream500.jpeg`),
-          label: 'Gulfstream 500',
-          route: { name: 'plane', params: { id: 'Gulfstream 500' } },
-          notAvailable: true
-        }
-      ]
+      planes: planes
     }
   },
   created: function() {},
@@ -76,20 +61,21 @@ export default {
 @import '../assets/less/structure';
 
 .fleet {
-  height: 100vh;
+  height: 100%;
   width: 100%;
   position: relative;
 
-  @media @mobile {
-    height: 100%;
+  @media @medium {
+    height: 100vh;
   }
 
   background: var(--v-secondary-darken1);
   &__content {
     display: flex;
+    flex-direction: column;
 
-    @media @mobile {
-      flex-direction: column;
+    @media @medium {
+      flex-direction: row;
     }
 
     &__item {
@@ -100,9 +86,10 @@ export default {
       &__image {
         left: 0;
         height: 100%;
+        max-height: 100vh;
         width: 100%;
         object-fit: cover;
-        object-position: center;
+        object-position: 30% 100%;
         filter: brightness(50%) blur(1px) grayscale(0.8);
         transition: filter 1s ease;
 
@@ -134,13 +121,18 @@ export default {
 
       &__headline {
         position: absolute;
-        width: max-content;
+        width: 100%;
         left: 0;
         right: 0;
         margin: auto;
         top: 50px;
         color: white;
         font-size: 1.8em;
+
+        &.not-available {
+          transform: scale(0.7);
+          color: lightgray;
+        }
       }
       &__button {
         position: absolute;

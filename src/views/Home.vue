@@ -63,9 +63,15 @@ export default {
           active: true
         },
         {
-          image: require(`@/assets/web/SLT_0779-Bearbeitet.jpg`),
+          image: require(`@/assets/OEHUB-04-takeoff.jpg`),
           label: 'Aircraft Management',
           route: 'aircraft-management',
+          active: false
+        },
+        {
+          image: require(`@/assets/web/SLT_0779-Bearbeitet.jpg`),
+          label: 'Gallery',
+          route: 'gallery',
           active: false
         }
       ]
@@ -107,15 +113,19 @@ section {
 .intro {
   height: 100%;
   @media @medium {
-    height: 90vh;
+    max-height: 90vh;
   }
 }
 
 .cover__wrapper {
   width: 100%;
-  height: 90vh;
+  height: 95vh;
   display: flex;
   position: relative;
+
+  @media @medium {
+    height: 90vh;
+  }
 }
 
 .home {
@@ -146,12 +156,13 @@ section {
     &__button {
       position: absolute;
       height: 45px;
-      left: 10%;
+      left: 0;
+      right: 0;
       bottom: 10%;
 
-      @media @mobile {
-        left: 0;
-        right: 0;
+      @media @medium {
+        left: 10%;
+        right: auto;
       }
 
       a {
@@ -186,8 +197,12 @@ section {
   color: white;
 
   &__headline {
-    padding: 10vh 0;
+    padding: 5vh 0;
     width: 100vw;
+
+    @media @medium {
+      padding: 10vh 0;
+    }
   }
 }
 </style>

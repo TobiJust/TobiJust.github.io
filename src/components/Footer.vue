@@ -4,6 +4,7 @@
       <router-link to="/">Home</router-link>
       <router-link to="/fleet">Fleet</router-link>
       <router-link to="/aircraft-management">Aircraft Management</router-link>
+      <router-link to="/gallery">Gallery</router-link>
       <router-link to="/contact">Contact</router-link>
       <router-link to="/admin">Admin</router-link>
     </div>
@@ -13,12 +14,6 @@
         target="_blank"
         rel="noopener noreferrer"
         >Terms & Conditions</a
-      >
-      <a
-        href="/downloads/T&Cs Bairline Fluggesellschaft GmbH.pdf"
-        target="_blank"
-        rel="noopener noreferrer"
-        >Impressum</a
       >
       <a
         href="/downloads/Menu List.pdf"
@@ -31,7 +26,9 @@
     <p class="footer__copyright">
       All Rights Reserved © Bairline Fluggesellschaft mbH & Co. KG, Innsbrucker
       Bundesstraße 107, 5020 Salzburg, AT,
-      <a href="tel:+49 1234 567890">+49 1234 567890</a>
+      <a href="tel:+49 (0)30 8631 8972" class="footer__telephone"
+        >+49 (0)30 8631 8972</a
+      >
       <br />
       Website by Tobias Just
     </p>
@@ -48,6 +45,7 @@ export default {}
 .footer {
   background-color: #333;
   padding-bottom: 25px;
+  padding-top: 10px;
 
   &__nav {
     padding: 0;
@@ -59,9 +57,13 @@ export default {}
     justify-content: center;
     z-index: 1;
 
-    @media @tablet {
+    @media @medium {
       height: 10vh;
-      grid-template-columns: max-content max-content max-content max-content max-content;
+    }
+
+    @media @tablet {
+      height: 5vh;
+      grid-template-columns: max-content max-content max-content max-content max-content max-content;
     }
 
     @media @mobile {
@@ -86,8 +88,10 @@ export default {}
     align-items: center;
     justify-content: center;
 
-    @media @tablet {
+    @media @medium {
       height: 5vh;
+    }
+    @media @tablet {
       grid-template-columns: max-content max-content max-content;
     }
 
