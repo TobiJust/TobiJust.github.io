@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 2287 876">
+	<style>
+#WBlue {  
+	fill: hsla(0,0%,70%,0.95);
+	motion-path: path( 'm -344.6,799.7 c 161.3,-55 777.2,121 1224.5,51 447.1,-70 964.1,-110 1246.1,-37 283,74 462,92 462,92' );
+	offset-path: path( 'm -344.6,799.7 c 161.3,-55 777.2,121 1224.5,51 447.1,-70 964.1,-110 1246.1,-37 283,74 462,92 462,92' );
+	motion-rotation: 0;
+	offset-rotate: 0deg;
+    animation: path-animation 20s 4s infinite linear;
+}
+
+#WGreen {
+	fill: hsla(0,0%,60%,0.95);
+	motion-path: path( 'M -102.7,842.4 C 974.1,716 939.9,900 2735,871.7');
+	offset-path: path( 'M -102.7,842.4 C 974.1,716 939.9,900 2735,871.7');
+	motion-rotation: 0;
+	offset-rotate: 0deg;
+	animation: path-animation 20s 2s infinite linear;
+}
+
+#WRed {
+	fill: hsla(0,0%,75%,0.95);
+	motion-path: path( 'M -102.7,742.4 C 974.1,616 939.9,1000 2335,771.7');
+	offset-path: path( 'M -102.7,742.4 C 974.1,616 939.9,1000 2335,771.7');
+	motion-rotation: 0;
+	offset-rotate: 0deg;
+	animation: path-animation 20s 6s infinite linear;
+}
+
+#WShark {
+	fill: hsla(0,0%,60%,0.95);
+	motion-path: path( 'M -200,1260 C 974,980 940,1200 2335,1260');
+	offset-path: path( 'M -200,1260 C 974,980 940,1200 2335,1260');
+	motion-rotation: 0;
+	offset-rotate:0deg;
+	animation: path-animation 20s 8s infinite linear;
+}
+
+@keyframes path-animation {
+	0% { 
+		motion-offset: 0%;
+		offset-distance: 0%;
+	}
+	100% { 
+		motion-offset: 100%;
+		offset-distance: 100%;
+	}
+}
+
+	</style>
+	<path id="WBlue" transform="translate(-100,-600)" d="m 0,100 c -110,2 -197,27.1 -197,75 0,47.9 267,96.7 378,43 67,37.3 223,5.4 214,-64 -9,-69.4 -92,-83 -138,-83 -34,-168.445 -271,-81.52 -257,29 "/>
+	<path id="WGreen" transform="translate(-100,-600)" d="m -20,300 c -39.5,0 -84,27 -102,40 -130.2,-31 -148,15 -186,55 -10,9 -45,-3 -65,-3 -52,0 -85,27 -85,78 17,77 91,81 154,44 37,35 79.4,42 151.5,33 72.1,-9 88.2,-30 179,-26 91,4 116,-37 114,-111 -1.4,-74 -81.66,-110 -160.66,-110 z"/>
+	<path id="WRed" transform="translate(-100,-600)" d="m -200,100 c -71,0 -130,49 -130,110 0,6 1,12 2,18 -110,2 -197,35 -197,75 0,41 93,75 208,75 70,0 132,-13 170,-32 22.1,12 51.1,19 83.1,19 72,0 131,-37 131,-83 0,-46 -59,-83 -131,-83 -2,0 -5,0 -7,0 -7,-56 -62.1,-99.4 -129.1,-99.4 z"/>
+	<path id="WShark" transform="translate(-400,-500)" d="m -341.9,16.95 c 327.26,-25.996 311.66,16 327.26,-36 C 0.964,-71.05 -40.64,-216 6.164,-175 52.86,-133 120.4,-19.05 151.6,1.954 182.8,22.95 307.4,16.95 369.7,48.95 c 62.3,31 -722,0 -722,0 z"/>
+</svg>

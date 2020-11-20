@@ -1,7 +1,6 @@
 import Vue from 'vue'
 import Vuetify from 'vuetify/lib'
 import colors from 'vuetify/lib/util/colors'
-
 import en from '../i18n/vuetify/en.ts'
 
 Vue.use(Vuetify)

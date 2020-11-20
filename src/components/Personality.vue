@@ -58,7 +58,7 @@ export default {
     transition: transform 2s ease 0s;
   }
   &__content {
-    padding: 20px;
+    padding: 25px;
     @media @tablet {
       width: 50vw;
     }
@@ -93,7 +93,7 @@ export default {
     }
   }
   &__button {
-    margin-top: 25px;
+    margin: 25px 0;
     a {
       font-size: 1em;
       color: white;

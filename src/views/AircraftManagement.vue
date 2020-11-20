@@ -1,6 +1,7 @@
 <template>
   <div class="management">
     <h1>This is an aircraft management page</h1>
+    <img src="@/assets/clouds.jpg" alt="" />
   </div>
 </template>
 <script>

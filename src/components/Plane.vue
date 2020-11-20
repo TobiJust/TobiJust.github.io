@@ -23,7 +23,33 @@
       >
         <div style="position: relative;">
           <img class="plane__image" :src="plane.coverImage" alt />
-          <h1 class="plane__headline" style>{{ plane.name }}</h1>
+          <v-btn
+            x-small
+            text
+            color="white"
+            class="plane__prev"
+            @click="
+              $router.push({ name: 'plane', params: { id: prevPlane.name } })
+            "
+            v-if="!prevPlane.notAvailable"
+          >
+            <v-icon left>mdi-chevron-left</v-icon>
+            {{ prevPlane.name }}
+          </v-btn>
+          <h1 class="plane__headline">{{ plane.name }}</h1>
+          <v-btn
+            x-small
+            text
+            color="white"
+            class="plane__next"
+            @click="
+              $router.push({ name: 'plane', params: { id: nextPlane.name } })
+            "
+            v-if="!nextPlane.notAvailable"
+          >
+            {{ nextPlane.name }}
+            <v-icon right>mdi-chevron-right</v-icon>
+          </v-btn>
         </div>
       </v-skeleton-loader>
       <h2 class="headline">{{ plane.tagline }}</h2>
@@ -55,7 +81,7 @@
           <v-icon :color="!dayNight ? '#ddd' : ''">mdi-power-sleep</v-icon>
         </div>
       </div>
-      <h2 class="plane__facts__headline">Technical information</h2>
+      <h2 class="headline">Technical information</h2>
       <hr class="plane__divider" />
       <v-container>
         <v-row dense style="position: relative;">
@@ -205,7 +231,17 @@ export default {
   computed: {
     ...mapGetters({
       user: 'user'
-    })
+    }),
+    nextPlane: function() {
+      var i = Object.values(planes).findIndex(x => x.name === this.id)
+      var next = i + 1 > Object.keys(planes).length ? 0 : i + 1
+      return Object.values(planes)[next]
+    },
+    prevPlane: function() {
+      var i = Object.values(planes).findIndex(x => x.name === this.id)
+      var prev = i - 1 < 0 ? Object.keys(planes).length - 1 : i - 1
+      return Object.values(planes)[prev]
+    }
   },
   methods: {
     openDialog(index) {
@@ -252,9 +288,36 @@ export default {
     margin: auto;
     z-index: 1;
     color: white;
+    font-family: 'Montserrat', sans-serif !important;
 
     @media @mobile {
       font-size: 1.5em;
+    }
+  }
+  &__next {
+    position: absolute;
+    right: 0;
+    top: 2%;
+    margin-right: 10px;
+    z-index: 1;
+    color: white;
+    font-size: 0.8em;
+
+    @media @mobile {
+      font-size: 0.8em;
+    }
+  }
+  &__prev {
+    position: absolute;
+    left: 0;
+    top: 2%;
+    margin-left: 10px;
+    z-index: 1;
+    color: white;
+    font-size: 0.8em;
+
+    @media @mobile {
+      font-size: 0.8em;
     }
   }
 
@@ -305,7 +368,6 @@ export default {
     width: 100%;
     object-fit: cover;
     object-position: 25% 30%;
-    filter: brightness(80%);
 
     @media @tablet {
       height: 90vh;
@@ -316,12 +378,6 @@ export default {
     display: flex;
     justify-content: space-between;
     margin-bottom: 15px;
-
-    &__headline {
-      margin: 25px 0;
-    }
-    &__item {
-    }
   }
 
   &__download {
@@ -380,6 +436,7 @@ export default {
 
 h2.headline {
   margin: 25px 0;
+  font-family: 'Montserrat', sans-serif !important;
 }
 
 .switch {

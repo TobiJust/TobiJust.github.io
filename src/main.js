@@ -1,13 +1,13 @@
-import Vue from 'vue'
-import App from './App.vue'
-import router from './router'
-import store from './store'
-import vuetify from './plugins/vuetify'
+import '@mdi/font/css/materialdesignicons.css'
+import 'firebase/analytics'
 import firebase from 'firebase/app'
 import 'firebase/auth'
-import 'firebase/analytics'
 import 'roboto-fontface/css/roboto/roboto-fontface.css'
-import '@mdi/font/css/materialdesignicons.css'
+import Vue from 'vue'
+import App from './App.vue'
+import vuetify from './plugins/vuetify'
+import router from './router'
+import store from './store'
 
 Vue.config.productionTip = false
 
@@ -29,6 +29,17 @@ firebase.auth().onAuthStateChanged(user => {
   store.dispatch('fetchUser', user)
 })
 
+Vue.directive('scroll', {
+  inserted: function(el, binding) {
+    console.log(el)
+    let f = function(evt) {
+      if (binding.value(evt, el)) {
+        window.removeEventListener('scroll', f)
+      }
+    }
+    window.addEventListener('scroll', f)
+  }
+})
 new Vue({
   router,
   store,

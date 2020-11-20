@@ -1,9 +1,17 @@
 <template>
-  <div class="nav">
+  <div class="nav" :class="{ 'nav-transparent': $route.name == 'home' }">
     <router-link to="/">
       <img class="nav__image" src="@/assets/logo/Logo_small.png" alt />
     </router-link>
-    <router-link to="/home" color="primary">Home</router-link>
+    <router-link
+      to="/home"
+      color="primary"
+      :class="{
+        'router-link-active': $route.path == '/',
+        'router-link-exact-active': $route.path == '/'
+      }"
+      >Home</router-link
+    >
     <router-link :to="{ name: 'fleet' }">Fleet</router-link>
     <router-link to="/aircraft-management">Aircraft Management</router-link>
     <router-link :to="{ name: 'gallery' }">Gallery</router-link>
@@ -65,6 +73,14 @@ export default {
   align-items: center;
   z-index: 1;
   min-height: 5vh;
+  position: relative;
+
+  // &-transparent {
+  //   background: transparent;
+  //   position: absolute;
+  //   top: 0;
+  //   transition: background 1s ease 1s;
+  // }
 
   @media @medium {
     min-height: 10vh;

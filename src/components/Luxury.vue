@@ -8,7 +8,7 @@
     <div class="luxury__image">
       <img
         class="luxury__image__img"
-        src="@/assets/web/SLT_0740-Bearbeitet.jpg"
+        src="@/assets/web/CitationX/SLT_0740-Bearbeitet.jpg"
         alt
       />
     </div>
@@ -61,7 +61,7 @@ export default {
   }
 
   &__content {
-    padding: 20px;
+    padding: 25px;
     @media @tablet {
       width: 50vw;
     }
@@ -96,7 +96,7 @@ export default {
     }
   }
   &__button {
-    margin-top: 25px;
+    margin: 25px 0;
     i {
       color: white;
     }

@@ -61,6 +61,7 @@ export default {
   height: 80vh;
   display: grid;
   grid-auto-rows: 40% auto 30%;
+  grid-auto-columns: 100%;
   align-items: center;
 
   &__headline {
@@ -76,7 +77,7 @@ export default {
       color: var(--v-primary-base);
 
       &:hover {
-        color: var(--v-primary-darken2);
+        color: var(--v-primary-darken1);
       }
     }
     &__telephone {
@@ -84,7 +85,7 @@ export default {
         color: var(--v-primary-base);
 
         &:hover {
-          color: var(--v-primary-darken2);
+          color: var(--v-primary-darken1);
         }
       }
     }

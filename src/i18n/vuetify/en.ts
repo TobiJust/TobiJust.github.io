@@ -34,7 +34,7 @@ export default {
   fileInput: { counter: '{0} files', counterSize: '{0} files ({1} in total)' },
   timePicker: { am: 'AM', pm: 'PM' },
   intro: {
-    headline: 'BAIRLINE Fluggesellschaft mbh & Co. KG',
+    headline: 'Bairline Fluggesellschaft m.b.H. & Co KG',
     content:
       'With a concept made in Bavaria, Bairline represents what Business Aviation is meant to be! You want to go on holiday or just need to get to your next business meeting? You are looking for an intercontinental flight or the quickest way across Europe? We offer the right aircraft for any of your demands.',
     taglineHeadline: 'Shortest communication line in the industry',
@@ -42,8 +42,8 @@ export default {
       'When flying with Bairline, we guarantee all information will reach you on the fastest possible way. No waiting time for receiving departure/arrival movements. Short notice changes will be handled in seconds. Our advantage of having the Charter Sales and Pilots combined offers outstanding performance in the business aviation industry.'
   },
   promises: {
-    headline: 'Our promise: Flexibility, Personality, Luxury!',
-    content: 'Our promise: Flexibility, Personality, Luxury!'
+    headline: 'Our Promise: Flexibility, Personality, Luxury!',
+    content: 'Our Promise: Flexibility, Personality, Luxury!'
   },
   flexibility: {
     headline: 'Flexibility',
@@ -64,7 +64,7 @@ export default {
     headline: `Our Fleet - It\'ll blow your mind`
   },
   contact_us: {
-    headline: 'Contact us',
+    headline: 'Contact Us',
     telephone: 'Telephone',
     mail: 'Email'
   },

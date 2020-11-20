@@ -1,6 +1,10 @@
 <template>
   <div class="intro">
-    <img class="intro__image" src="@/assets/logo/Logo.png" alt="Bairline" />
+    <img
+      class="intro__image"
+      src="@/assets/logo/Logo_cropped.png"
+      alt="Bairline"
+    />
     <h1 class="intro__headline">
       {{ $vuetify.lang.t('$vuetify.intro.headline') }}
     </h1>
@@ -44,18 +48,17 @@ export default {
   }
   &__image {
     max-width: 100%;
+    margin: 50px 0;
     @media @mobile {
       width: 100%;
-      margin: -50px 0;
     }
 
     @media @tablet {
-      margin: -150px 0;
+      width: 70%;
     }
 
     @media @mobileHeight {
       width: 70%;
-      margin: -100px 0;
     }
   }
   &__content {

@@ -36,7 +36,8 @@ export default {
   color: white;
   display: flex;
   align-items: center;
-  transition: transform 2s ease 1s;
+  transition: transform 2s ease 180s;
+  // animation-fill-mode: forwards;
   @media @mobile {
     flex-direction: column;
   }
@@ -52,7 +53,7 @@ export default {
     transition: transform 2s ease 0s;
   }
   &__content {
-    padding: 20px;
+    padding: 25px;
     @media @tablet {
       width: 50vw;
     }

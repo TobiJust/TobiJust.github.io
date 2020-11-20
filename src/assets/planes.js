@@ -18,18 +18,18 @@ const planes = {
     },
     facts: {
       passengers: 'Up to 9 passengers',
-      luggage: 'Luggage Capactity: 70.63 ft³ / 2 m³',
+      luggage: 'Luggage Capacity: 70.63 ft³ / 2 m³',
       manufactured: 'Manufactured 2007',
       speed: 'Cruise Speed: Mach 0.92 / 1.000 kph'
     },
     factSheet: '/downloads/CITX Fact Sheet.pdf',
     gallery: [
-      require('@/assets/web/SLT_0728-Bearbeitet.jpg'),
-      require('@/assets/web/SLT_0731-Bearbeitet.jpg'),
-      require('@/assets/web/SLT_0734-Bearbeitet.jpg'),
-      require('@/assets/web/SLT_0737-Bearbeitet.jpg'),
-      require('@/assets/web/SLT_0740-Bearbeitet.jpg'),
-      require('@/assets/web/SLT_0746-Bearbeitet.jpg')
+      require('@/assets/web/CitationX/SLT_0728-Bearbeitet.jpg'),
+      require('@/assets/web/CitationX/SLT_0731-Bearbeitet.jpg'),
+      require('@/assets/web/CitationX/SLT_0734-Bearbeitet.jpg'),
+      require('@/assets/web/CitationX/SLT_0737-Bearbeitet.jpg'),
+      require('@/assets/web/CitationX/SLT_0740-Bearbeitet.jpg'),
+      require('@/assets/web/CitationX/SLT_0746-Bearbeitet.jpg')
     ]
   },
   'Citation CJ 2': {

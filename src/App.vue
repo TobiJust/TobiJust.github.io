@@ -5,7 +5,7 @@
       <Header v-else></Header>
       <div class="main">
         <transition name="component-fade" mode="out-in">
-          <router-view />
+          <router-view :key="$route.fullPath" />
         </transition>
       </div>
       <Contact v-if="$route.name !== 'contact'"></Contact>
@@ -31,7 +31,7 @@ export default {
 
 <style lang="less">
 @import (css)
-  url('https://fonts.googleapis.com/css?family=Montserrat|Open+Sans&display=swap');
+  url('https://fonts.googleapis.com/css?family=Montserrat|Open+Sans&family=Oleo+Script&display=swap');
 
 body {
   margin: 0;
@@ -41,7 +41,7 @@ body {
   background-position: center center;
 }
 #app {
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Montserrat', sans-serif !important;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
@@ -59,11 +59,9 @@ a {
 }
 .component-fade-enter {
   opacity: 0;
-  transform: translateX(-100%);
 }
 .component-fade-leave-to {
   opacity: 0;
-  transform: translateX(100%);
 }
 
 .v-dialog {
