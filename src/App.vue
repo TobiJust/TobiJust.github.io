@@ -37,7 +37,6 @@ body {
   margin: 0;
 }
 .main {
-  // background-image: url('~@/assets/logo/Logo.png');
   background-position: center center;
 }
 #app {

@@ -9,7 +9,7 @@
       <img
         v-show="!drawer"
         class="nav__image"
-        src="@/assets/logo/Logo_small.png"
+        src="@/assets/logo/Logo_Bairline_new.png"
         alt
       />
     </v-app-bar>
@@ -24,7 +24,7 @@
       <template v-slot:prepend>
         <img
           class="nav__drawer__image"
-          src="@/assets/logo/Logo_small.png"
+          src="@/assets/logo/Logo_Bairline_new.png"
           alt
         />
       </template>

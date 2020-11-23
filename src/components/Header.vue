@@ -1,7 +1,8 @@
 <template>
   <div class="nav" :class="{ 'nav-transparent': $route.name == 'home' }">
-    <router-link to="/">
-      <img class="nav__image" src="@/assets/logo/Logo_small.png" alt />
+    <div></div>
+    <router-link to="/" v-if="$route.name != 'home'">
+      <img class="nav__image" src="@/assets/logo/Logo_Bairline_new.png" alt />
     </router-link>
     <router-link
       to="/home"
@@ -66,24 +67,20 @@ export default {
   margin: 0;
   overflow: hidden;
   background-color: #333;
-  width: 100vw;
+  width: 93vw;
   top: 0;
   display: grid;
-  grid-template-columns: 15% max-content max-content max-content max-content max-content auto;
+  grid-template-columns: 1fr repeat(6, max-content) auto;
   align-items: center;
   z-index: 1;
-  min-height: 5vh;
+  min-height: 60px;
   position: relative;
 
-  // &-transparent {
-  //   background: transparent;
-  //   position: absolute;
-  //   top: 0;
-  //   transition: background 1s ease 1s;
-  // }
-
-  @media @medium {
-    min-height: 10vh;
+  &-transparent {
+    background: transparent;
+    position: absolute;
+    top: 0;
+    transition: background 1s ease 1s;
   }
 
   &__image {
@@ -128,7 +125,7 @@ export default {
     z-index: 2;
 
     @media @medium {
-      top: 2vh;
+      top: 8px;
     }
 
     :hover::before {

@@ -4,6 +4,7 @@ import firebase from 'firebase/app'
 import 'firebase/auth'
 import 'roboto-fontface/css/roboto/roboto-fontface.css'
 import Vue from 'vue'
+import VueScrollTo from 'vue-scrollto'
 import App from './App.vue'
 import vuetify from './plugins/vuetify'
 import router from './router'
@@ -29,16 +30,18 @@ firebase.auth().onAuthStateChanged(user => {
   store.dispatch('fetchUser', user)
 })
 
-Vue.directive('scroll', {
-  inserted: function(el, binding) {
-    console.log(el)
-    let f = function(evt) {
-      if (binding.value(evt, el)) {
-        window.removeEventListener('scroll', f)
-      }
-    }
-    window.addEventListener('scroll', f)
-  }
+Vue.use(VueScrollTo, {
+  container: 'body',
+  duration: 2000,
+  easing: 'ease',
+  offset: 0,
+  force: true,
+  cancelable: true,
+  onStart: false,
+  onDone: false,
+  onCancel: false,
+  x: false,
+  y: true
 })
 new Vue({
   router,

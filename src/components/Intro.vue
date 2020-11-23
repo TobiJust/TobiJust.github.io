@@ -2,7 +2,7 @@
   <div class="intro">
     <img
       class="intro__image"
-      src="@/assets/logo/Logo_cropped.png"
+      src="@/assets/logo/Logo_Bairline_new.png"
       alt="Bairline"
     />
     <h1 class="intro__headline">

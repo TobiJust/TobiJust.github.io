@@ -1,86 +1,49 @@
 <template>
   <div class="home">
-    <!-- <section>
-      <div class="start">
-        <img src="@/assets/logo/Logo.png" alt="" />
-        <div class="start__info">
-          <h3>Business aviation as it's best.</h3>
-          <p>
-            Offers fast, cost efficient and flexible solutions to your
-            individual businesses.
-          </p>
-        </div>
-      </div>
-    </section> -->
-    <!-- <section class="jumbotron">
-      <div class="motion">
-        <div class="motion__first">
-          <img
-            class="motion__clouds"
-            src="@/assets/svg/motion.svg"
-            alt="CSS motion path nur Chrome, Opera, nicht safari,  firefox"
-          />
-
-          <img
-            class="motion__image"
-            src="@/assets/logo/Logo_cropped.png"
-            alt="Bairline"
-          />
-        </div>
-        <div class="motion__second">
-          <img
-            class="motion__plane"
-            src="@/assets/svg/plane.svg"
-            alt="CSS plane nur Chrome, Opera, nicht safari,  firefox"
-          />
-        </div>
-      </div>
-    </section> -->
     <section class="cover">
-      <!-- <div
-        class="cover__jumbotron"
-        v-for="(slogan, i) in slogans"
-        :key="slogan"
-        :class="{ 'cover__jumbotron--active': sloganIndex === i }"
-        v-bind:style="{ marginTop: 2 * i + 'em' }"
+      <v-parallax
+        height="100%"
+        class="cover__wrapper"
+        src="@/assets/web/SLT_0785-Bearbeitet.jpg"
       >
-        {{ slogan }}
-      </div> -->
-      <div class="cover__wrapper">
-        <div v-scroll="handleScroll" class="box">
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. A atque
-            amet harum aut ab veritatis earum porro praesentium ut corporis.
-            Quasi provident dolorem officia iure fugiat, eius mollitia sequi
-            quisquam.
-          </p>
-        </div>
+        <v-row align="center" justify="center">
+          <v-col class="text-center" cols="12">
+            <img
+              class="cover__logo"
+              src="@/assets/logo/Logo_Bairline_new.png"
+              alt=""
+            />
+            <div v-scroll-to="'#element'" class="home__cover__button">
+              <span>Explore</span>
+              <div>
+                <v-icon large color="white">mdi-chevron-down</v-icon>
+              </div>
+            </div>
+          </v-col>
+        </v-row>
+      </v-parallax>
+      <!-- <div class="cover__wrapper">
         <img
-          v-for="logo in logos"
-          :key="logo.label"
           class="home__cover__image"
-          :class="{ 'home__cover__image--active': logo.active }"
-          :src="logo.image"
+          src="@/assets/web/SLT_0785-Bearbeitet.jpg"
           data-toggle="tooltip"
           data-placement="bottom"
           alt="Bairline"
         />
-        <img class="cover__logo" src="@/assets/logo/Logo.png" alt="" />
-        <div
-          class="home__cover__button"
-          @mouseover="hover = true"
-          @mouseleave="hover = false"
-        >
-          <router-link :to="{ name: currentLogo.route }">
-            {{ currentLogo.label }}
-            <v-icon large class="home__cover__button__icon" v-show="hover">
-              mdi-airplane-takeoff
-            </v-icon>
-          </router-link>
+        <img
+          class="cover__logo"
+          src="@/assets/logo/Logo_Bairline_new.png"
+          alt=""
+        />
+        <div v-scroll-to="'#element'" class="home__cover__button">
+          <span>Explore</span>
+          <div>
+            <v-icon large color="white">mdi-chevron-down</v-icon>
+          </div>
         </div>
-      </div>
+      </div> -->
     </section>
-    <section class="intro">
+    <section class="intro" id="element">
       <Intro></Intro>
     </section>
     <section class="services">
@@ -114,70 +77,11 @@ export default {
         `Business aviation as it's best.`,
         'Charter Operator',
         'Airline'
-      ],
-      logos: [
-        {
-          image: require(`@/assets/web/SLT_0785-Bearbeitet.jpg`),
-          label: 'Fleet',
-          route: 'fleet',
-          active: true
-        },
-        {
-          image: require(`@/assets/OEHUB-04-takeoff.jpg`),
-          label: 'Aircraft Management',
-          route: 'aircraft-management',
-          active: false
-        },
-        {
-          image: require(`@/assets/web/SLT_0779-Bearbeitet.jpg`),
-          label: 'Gallery',
-          route: 'gallery',
-          active: false
-        }
       ]
     }
   },
-  computed: {
-    currentLogo: function() {
-      return this.logos.find(logo => logo.active)
-    }
-  },
-  methods: {
-    handleScroll: function(evt, el) {
-      if (window.scrollY > 50) {
-        console.log(el)
-        el.setAttribute(
-          'style',
-          'opacity: 1; transform: translate3d(0, -10px, 0)'
-        )
-      }
-      return window.scrollY > 100
-    }
-  },
-  created: function() {
-    let index = 0
-    setInterval(
-      function() {
-        if (index >= this.logos.length) {
-          index = 0
-        }
-        for (let i = 0; i < this.logos.length; i++) {
-          this.logos[i].active = index === i
-        }
-        index++
-      }.bind(this),
-      5000
-    )
-    setInterval(
-      function() {
-        this.sloganIndex++
-        if (this.sloganIndex >= this.slogans.length) {
-          this.sloganIndex = 0
-        }
-      }.bind(this),
-      3000
-    )
-  }
+  computed: {},
+  methods: {}
 }
 </script>
 
@@ -187,13 +91,16 @@ export default {
   transition: 1.5s all cubic-bezier(0.39, 0.575, 0.565, 1);
   z-index: 2;
 }
+img {
+  transform: none !important;
+  width: 310px !important;
+}
 section {
   @media @medium {
     position: relative;
     display: flex;
   }
 
-  .jumbotron,
   .cover,
   .intro {
     height: 100%;
@@ -205,46 +112,33 @@ section {
   .cover {
     &__wrapper {
       width: 100%;
-      height: 95vh;
+      height: 100vh !important;
       position: relative;
       display: grid;
       grid-template-columns: 10% repeat(3, minmax(5rem, 1fr)) 10%;
-      grid-template-rows: 2fr 1fr 1fr;
+      grid-template-rows: 1fr 1fr 1fr;
 
-      @media @medium {
-        height: 90vh;
+      // @media @medium {
+      //   height: 90vh;
+      // }
+
+      img {
+        width: 500px;
       }
     }
     &__logo {
       grid-column-start: 3;
       grid-column-end: 4;
-      grid-row-start: 1;
+      grid-row-start: 2;
       grid-row-end: 2;
       -o-object-fit: cover;
       object-fit: cover;
-      height: 200%;
+      max-height: 100%;
+      max-width: 75vw;
       align-self: center;
       justify-self: center;
       z-index: 1;
     }
-  }
-}
-.cover__jumbotron {
-  position: absolute;
-  margin: auto;
-  left: 0;
-  right: 0;
-  top: 20%;
-  z-index: 1;
-  font-size: 2em;
-  font-weight: lighter;
-  color: white;
-  opacity: 0;
-  transition: opacity 2.5s ease;
-
-  &--active {
-    opacity: 1;
-    transition: opacity 1s ease;
   }
 }
 
@@ -257,13 +151,7 @@ section {
       height: 100%;
       object-fit: cover;
       object-position: center;
-      filter: brightness(50%);
-      opacity: 0;
-      transition: opacity 2s;
-
-      &--active {
-        opacity: 1;
-      }
+      filter: brightness(30%);
     }
 
     &__text {
@@ -278,12 +166,13 @@ section {
       height: 45px;
       left: 0;
       right: 0;
-      bottom: 10%;
-
-      @media @medium {
-        left: 10%;
-        right: auto;
-      }
+      margin: auto;
+      bottom: 5%;
+      color: white;
+      display: inline-block;
+      font-weight: bolder;
+      font-size: 1.2em;
+      cursor: pointer;
 
       a {
         font-size: 1.8em;
@@ -309,6 +198,11 @@ section {
       }
     }
   }
+}
+
+.v-parallax__image-container {
+  left: 100% !important;
+  filter: brightness(0.5) !important;
 }
 
 .fleet {
