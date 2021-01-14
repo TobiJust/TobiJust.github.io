@@ -47,25 +47,6 @@
         {{ slogan }}
       </div> -->
       <div class="cover__wrapper">
-        <div v-scroll="handleScroll" class="box">
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. A atque
-            amet harum aut ab veritatis earum porro praesentium ut corporis.
-            Quasi provident dolorem officia iure fugiat, eius mollitia sequi
-            quisquam.
-          </p>
-        </div>
-        <img
-          v-for="logo in logos"
-          :key="logo.label"
-          class="home__cover__image"
-          :class="{ 'home__cover__image--active': logo.active }"
-          :src="logo.image"
-          data-toggle="tooltip"
-          data-placement="bottom"
-          alt="Bairline"
-        />
-        <img class="cover__logo" src="@/assets/logo/Logo.png" alt="" />
         <div
           class="home__cover__button"
           @mouseover="hover = true"
