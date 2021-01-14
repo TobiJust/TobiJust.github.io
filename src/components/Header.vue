@@ -107,6 +107,7 @@ export default {
     text-align: center;
     padding: 0 16px;
     text-decoration: none;
+    font-size: 1.2em;
   }
 
   & a:hover:not(.active) {

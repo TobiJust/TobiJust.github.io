@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <section class="cover">
-      <v-parallax
+      <!-- <v-parallax
         height="100%"
         class="cover__wrapper"
         src="@/assets/web/SLT_0785-Bearbeitet.jpg"
@@ -21,11 +21,14 @@
             </div>
           </v-col>
         </v-row>
-      </v-parallax>
-      <!-- <div class="cover__wrapper">
+      </v-parallax> -->
+      <div
+        class="cover__wrapper"
+        :class="{ 'cover__wrapper-mdAndDown': $vuetify.breakpoint.mdAndDown }"
+      >
         <img
           class="home__cover__image"
-          src="@/assets/web/SLT_0785-Bearbeitet.jpg"
+          src="@/assets/OEHUB-04-takeoff.jpg"
           data-toggle="tooltip"
           data-placement="bottom"
           alt="Bairline"
@@ -38,10 +41,10 @@
         <div v-scroll-to="'#element'" class="home__cover__button">
           <span>Explore</span>
           <div>
-            <v-icon large color="white">mdi-chevron-down</v-icon>
+            <v-icon x-large color="white">mdi-chevron-down</v-icon>
           </div>
         </div>
-      </div> -->
+      </div>
     </section>
     <section class="intro" id="element">
       <Intro></Intro>
@@ -91,10 +94,6 @@ export default {
   transition: 1.5s all cubic-bezier(0.39, 0.575, 0.565, 1);
   z-index: 2;
 }
-img {
-  transform: none !important;
-  width: 310px !important;
-}
 section {
   @media @medium {
     position: relative;
@@ -112,18 +111,17 @@ section {
   .cover {
     &__wrapper {
       width: 100%;
-      height: 100vh !important;
+      height: 100vh;
       position: relative;
       display: grid;
       grid-template-columns: 10% repeat(3, minmax(5rem, 1fr)) 10%;
       grid-template-rows: 1fr 1fr 1fr;
 
-      // @media @medium {
-      //   height: 90vh;
-      // }
-
-      img {
-        width: 500px;
+      &-mdAndDown {
+        height: 93vh;
+      }
+      @media @mobile {
+        height: 90vh;
       }
     }
     &__logo {
@@ -163,15 +161,15 @@ section {
 
     &__button {
       position: absolute;
-      height: 45px;
       left: 0;
       right: 0;
       margin: auto;
-      bottom: 5%;
+      bottom: 5vh;
       color: white;
       display: inline-block;
       font-weight: bolder;
-      font-size: 1.2em;
+      font-size: 1.7em;
+      letter-spacing: 1px;
       cursor: pointer;
 
       a {
