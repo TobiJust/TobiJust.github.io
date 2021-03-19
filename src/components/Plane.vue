@@ -234,7 +234,7 @@ export default {
     }),
     nextPlane: function() {
       var i = Object.values(planes).findIndex(x => x.name === this.id)
-      var next = i + 1 > Object.keys(planes).length ? 0 : i + 1
+      var next = i + 1 >= Object.keys(planes).length ? 0 : i + 1
       return Object.values(planes)[next]
     },
     prevPlane: function() {

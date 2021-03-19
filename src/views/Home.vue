@@ -47,6 +47,16 @@
         {{ slogan }}
       </div> -->
       <div class="cover__wrapper">
+        <img
+          v-for="logo in logos"
+          :key="logo.label"
+          class="home__cover__image"
+          :class="{ 'home__cover__image--active': logo.active }"
+          :src="logo.image"
+          data-toggle="tooltip"
+          data-placement="bottom"
+          alt="Bairline"
+        />
         <div
           class="home__cover__button"
           @mouseover="hover = true"
