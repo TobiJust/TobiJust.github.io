@@ -67,4 +67,46 @@ a {
 .v-dialog {
   box-shadow: none !important;
 }
+
+.element__scroll {
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: auto;
+  bottom: 5vh;
+  color: white;
+  display: inline-block;
+  font-weight: bolder;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transform: scale(2);
+  animation-delay: 5s;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+  animation-name: bounce;
+  animation-timing-function: ease;
+}
+@keyframes bounce {
+  0% {
+    transform: scale(2, 2) translateY(0);
+  }
+  10% {
+    transform: scale(2.1, 1.9) translateY(0);
+  }
+  30% {
+    transform: scale(1.9, 2.1) translateY(-20px);
+  }
+  50% {
+    transform: scale(2, 2) translateY(0);
+  }
+  57% {
+    transform: scale(2, 2) translateY(-7px);
+  }
+  64% {
+    transform: scale(2, 2) translateY(0);
+  }
+  100% {
+    transform: scale(2, 2) translateY(0);
+  }
+}
 </style>

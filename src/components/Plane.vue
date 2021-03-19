@@ -50,9 +50,14 @@
             {{ nextPlane.name }}
             <v-icon right>mdi-chevron-right</v-icon>
           </v-btn>
+          <div v-scroll-to="'#element'" class="element__scroll">
+            <div>
+              <v-icon x-large color="white">mdi-chevron-double-down</v-icon>
+            </div>
+          </div>
         </div>
       </v-skeleton-loader>
-      <h2 class="headline">{{ plane.tagline }}</h2>
+      <h2 class="headline" id="element">{{ plane.tagline }}</h2>
       <hr class="plane__divider" />
       <p class="plane__content">{{ plane.content }}</p>
       <a
@@ -289,6 +294,9 @@ export default {
     z-index: 1;
     color: white;
     font-family: 'Montserrat', sans-serif !important;
+    font-size: 3em;
+    font-weight: 200;
+    text-shadow: 2px 2px grey;
 
     @media @mobile {
       font-size: 1.5em;

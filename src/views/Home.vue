@@ -69,9 +69,14 @@
             </v-icon>
           </router-link>
         </div>
+        <div v-scroll-to="'#element'" class="element__scroll">
+          <div>
+            <v-icon x-large color="white">mdi-chevron-double-down</v-icon>
+          </div>
+        </div>
       </div>
     </section>
-    <section class="intro">
+    <section class="intro" id="element">
       <Intro></Intro>
     </section>
     <section class="services">
@@ -136,7 +141,6 @@ export default {
   methods: {
     handleScroll: function(evt, el) {
       if (window.scrollY > 50) {
-        console.log(el)
         el.setAttribute(
           'style',
           'opacity: 1; transform: translate3d(0, -10px, 0)'

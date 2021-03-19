@@ -1,4 +1,57 @@
 const planes = {
+  'Gulfstream G500': {
+    name: 'Gulfstream G500',
+    tagline: 'The full package for long-range flights',
+    content:
+      'Take a flight with our most technologically advanced and luxurious jet. The fastest aircraft in its class combined with plenty of space in the cabin is your best choice for long distance flights.',
+    entryImage: require(`@/assets/web/Gulfstream G500/SL7_4849-Bearbeitet.jpg`),
+    coverImage: require(`@/assets/web/Gulfstream G500/SL7_4804-Bearbeitet.jpg`),
+    // floorplan: require(`@/assets/plane/floorplan_citationX.png`),
+    // floorplan_night: require(`@/assets/plane/floorplan_citationX_night.png`),
+    tourUrl: 'https://jet-pano.net/bairline/lub/',
+    rangeMap: require(`@/assets/maps/map-gulfstreamG500.jpg`),
+    specs: {
+      height: 'Height: 6.17 ft / 1.88 m',
+      width: 'Width: 7.58 ft / 2.31 m',
+      length: 'Length: 41.50 ft / 12.65 m',
+      range: 'Flight Range: 5.300 nm / 9.816 km'
+    },
+    facts: {
+      passengers: 'Up to 13 passengers',
+      luggage: 'Luggage Capacity: 175 ft³ / 4.96 m³',
+      manufactured: 'Manufactured 2020',
+      speed: 'Cruise Speed: Mach 0.925 / 1.105 kph'
+    },
+    factSheet: '.',
+    gallery: [
+      require('@/assets/web/Gulfstream G500/SL7_4549-Bearbeitet.jpg'),
+      require('@/assets/web/Gulfstream G500/SL7_4573-Bearbeitet.jpg'),
+      require('@/assets/web/Gulfstream G500/SL7_4591-Bearbeitet.jpg'),
+      require('@/assets/web/Gulfstream G500/SL7_4630-Bearbeitet.jpg'),
+      require('@/assets/web/Gulfstream G500/SL7_4726-Bearbeitet.jpg'),
+      require('@/assets/web/Gulfstream G500/SL7_4561-Bearbeitet.jpg'),
+      require('@/assets/web/Gulfstream G500/SL7_4636-Bearbeitet.jpg'),
+      require('@/assets/web/Gulfstream G500/SL7_4735-Bearbeitet.jpg'),
+      require('@/assets/web/Gulfstream G500/SL7_4585-Bearbeitet.jpg'),
+      require('@/assets/web/Gulfstream G500/SL7_4732-Bearbeitet.jpg'),
+      require('@/assets/web/Gulfstream G500/SL7_4585_2-Bearbeitet.jpg'),
+      require('@/assets/web/Gulfstream G500/SL7_4579_2-Bearbeitet.jpg'),
+      require('@/assets/web/Gulfstream G500/SL7_4594-Bearbeitet.jpg'),
+      require('@/assets/web/Gulfstream G500/SL7_4564-Bearbeitet.jpg'),
+      require('@/assets/web/Gulfstream G500/SL7_4579-Bearbeitet.jpg'),
+      require('@/assets/web/Gulfstream G500/SL7_4606-Bearbeitet.jpg'),
+      require('@/assets/web/Gulfstream G500/SL7_4600-Bearbeitet.jpg'),
+      require('@/assets/web/Gulfstream G500/SL7_4612-Bearbeitet.jpg'),
+      require('@/assets/web/Gulfstream G500/SL7_4663-Bearbeitet.jpg'),
+      require('@/assets/web/Gulfstream G500/SL7_4768-Bearbeitet.jpg'),
+      require('@/assets/web/Gulfstream G500/SL7_4681-Bearbeitet.jpg'),
+      require('@/assets/web/Gulfstream G500/SL7_4762-Bearbeitet.jpg'),
+      require('@/assets/web/Gulfstream G500/SL7_4618-Bearbeitet.jpg'),
+      require('@/assets/web/Gulfstream G500/SL7_4549-Bearbeitet.jpg'),
+      require('@/assets/web/Gulfstream G500/SL7_4708-Bearbeitet.jpg'),
+      require('@/assets/web/Gulfstream G500/SL7_4555-Bearbeitet.jpg')
+    ]
+  },
   'Citation X': {
     name: 'Citation X',
     tagline: 'The fastest business jet in the world',
@@ -20,7 +73,7 @@ const planes = {
       passengers: 'Up to 9 passengers',
       luggage: 'Luggage Capacity: 70.63 ft³ / 2 m³',
       manufactured: 'Manufactured 2007',
-      speed: 'Cruise Speed: Mach 0.92 / 1.000 kph'
+      speed: 'Cruise Speed: Mach 0.92 / 1.100 kph'
     },
     factSheet: '/downloads/CITX Fact Sheet.pdf',
     gallery: [
@@ -62,62 +115,6 @@ const planes = {
       require('@/assets/web/CJ2/SLT_5953-Bearbeitet.jpg'),
       require('@/assets/web/CJ2/SLT_5959-Bearbeitet.jpg'),
       require('@/assets/web/CJ2/SLT_5968-Bearbeitet.jpg')
-    ]
-  },
-  'Gulfstream G500': {
-    name: 'Gulfstream G500',
-    tagline: 'The full package for long-range flights',
-    content:
-      'Take a flight with our most technologically advanced and luxurious jet. It fits perfectly for long-range flights and offers you plenty of space in the aircraft.',
-    entryImage: require(`@/assets/web/Gulfstream G500/SL7_4849-Bearbeitet.jpg`),
-    coverImage: require(`@/assets/web/Gulfstream G500/SL7_4804-Bearbeitet.jpg`),
-    tourUrl: 'https://jet-pano.net/bairline/lub/',
-    rangeMap: require(`@/assets/maps/map-gulfstreamG500.jpg`),
-    specs: {
-      height: 'Height: 6.2 ft / 1.89 m',
-      width: 'Width: 7.7 ft / 2.35 m',
-      length: 'Length: 41.6 ft / 12.68 m',
-      range: 'Flight Range: 5.300 nm / 9.816 km'
-    },
-    facts: {
-      passengers: 'Up to 13 passengers',
-      luggage: '175 ft³ / 4.96 m³',
-      manufactured: '2020',
-      speed: 'Cruise Speed: Mach 0.925'
-    },
-    gallery: [
-      require('@/assets/web/Gulfstream G500/SL7_4549-Bearbeitet.jpg'),
-      require('@/assets/web/Gulfstream G500/SL7_4573-Bearbeitet.jpg'),
-      require('@/assets/web/Gulfstream G500/SL7_4591-Bearbeitet.jpg'),
-      require('@/assets/web/Gulfstream G500/SL7_4630-Bearbeitet.jpg'),
-      require('@/assets/web/Gulfstream G500/SL7_4726-Bearbeitet.jpg'),
-      require('@/assets/web/Gulfstream G500/SL7_4561-Bearbeitet.jpg'),
-      require('@/assets/web/Gulfstream G500/SL7_4636-Bearbeitet.jpg'),
-      require('@/assets/web/Gulfstream G500/SL7_4735-Bearbeitet.jpg'),
-      require('@/assets/web/Gulfstream G500/SL7_4720-Bearbeitet.jpg'),
-      require('@/assets/web/Gulfstream G500/SL7_4585-Bearbeitet.jpg'),
-      require('@/assets/web/Gulfstream G500/SL7_4732-Bearbeitet.jpg'),
-      require('@/assets/web/Gulfstream G500/SL7_4585_2-Bearbeitet.jpg'),
-      require('@/assets/web/Gulfstream G500/SL7_4579_2-Bearbeitet.jpg'),
-      require('@/assets/web/Gulfstream G500/SL7_4594-Bearbeitet.jpg'),
-      require('@/assets/web/Gulfstream G500/SL7_4564-Bearbeitet.jpg'),
-      require('@/assets/web/Gulfstream G500/SL7_4579-Bearbeitet.jpg'),
-      require('@/assets/web/Gulfstream G500/SL7_4606-Bearbeitet.jpg'),
-      require('@/assets/web/Gulfstream G500/SL7_4774-Bearbeitet.jpg'),
-      require('@/assets/web/Gulfstream G500/SL7_4717-Bearbeitet.jpg'),
-      require('@/assets/web/Gulfstream G500/SL7_4600-Bearbeitet.jpg'),
-      require('@/assets/web/Gulfstream G500/SL7_4612-Bearbeitet.jpg'),
-      require('@/assets/web/Gulfstream G500/SL7_4663-Bearbeitet.jpg'),
-      require('@/assets/web/Gulfstream G500/SL7_4768-Bearbeitet.jpg'),
-      require('@/assets/web/Gulfstream G500/SL7_4681-Bearbeitet.jpg'),
-      require('@/assets/web/Gulfstream G500/SL7_4777-Bearbeitet.jpg'),
-      require('@/assets/web/Gulfstream G500/SL7_4762-Bearbeitet.jpg'),
-      require('@/assets/web/Gulfstream G500/SL7_4618-Bearbeitet.jpg'),
-      require('@/assets/web/Gulfstream G500/SL7_4714-Bearbeitet.jpg'),
-      require('@/assets/web/Gulfstream G500/SL7_4549-Bearbeitet.jpg'),
-      require('@/assets/web/Gulfstream G500/SL7_4708-Bearbeitet.jpg'),
-      require('@/assets/web/Gulfstream G500/SL7_4555-Bearbeitet.jpg'),
-      require('@/assets/web/Gulfstream G500/SL7_3925.jpg')
     ]
   }
 }

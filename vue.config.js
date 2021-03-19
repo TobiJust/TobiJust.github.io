@@ -5,7 +5,7 @@ const VuetifyLoaderPlugin = require('vuetify-loader/lib/plugin')
 
 module.exports = {
   configureWebpack: {
-    plugins: [new BundleAnalyzerPlugin()]
+    plugins: []
   },
   publicPath: '/',
   transpileDependencies: ['vuetify']
