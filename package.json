@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@mdi/font": "^3.6.95",
+    "@mdi/light-font": "^0.2.63",
     "@vue/eslint-config-prettier": "^6.0.0",
     "colorette": "^1.2.0",
     "core-js": "^3.4.4",

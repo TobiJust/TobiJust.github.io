@@ -1,7 +1,7 @@
 <template>
   <div class="nav" :class="{ 'nav-transparent': $route.name == 'home' }">
     <router-link to="/">
-      <img class="nav__image" src="@/assets/logo/Logo_small.png" alt />
+      <BairlineLogo class="nav__image" />
     </router-link>
     <router-link
       to="/home"
@@ -33,8 +33,10 @@
 import firebase from 'firebase/app'
 import 'firebase/auth'
 import { mapGetters } from 'vuex'
+import BairlineLogo from '@/components/BairlineLogo'
 
 export default {
+  components: { BairlineLogo },
   computed: {
     // map `this.user` to `this.$store.getters.user`
     ...mapGetters({
@@ -88,6 +90,7 @@ export default {
 
   &__image {
     width: 100%;
+    padding: 3%;
   }
   &__logout {
     width: max-content;

@@ -8,7 +8,7 @@
     <div class="luxury__image">
       <img
         class="luxury__image__img"
-        src="@/assets/web/CitationX/SLT_0740-Bearbeitet.jpg"
+        src="@/assets/web/Gulfstream G500/SL7_4618-Bearbeitet.jpg"
         alt
       />
     </div>

@@ -52,7 +52,7 @@
           </v-btn>
           <div v-scroll-to="'#element'" class="element__scroll">
             <div>
-              <v-icon x-large color="white">mdi-chevron-double-down</v-icon>
+              <v-icon x-large color="white">mdi-chevron-down</v-icon>
             </div>
           </div>
         </div>

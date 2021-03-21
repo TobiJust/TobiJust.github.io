@@ -76,14 +76,11 @@ a {
   bottom: 5vh;
   color: white;
   display: inline-block;
-  font-weight: bolder;
-  letter-spacing: 1px;
   cursor: pointer;
-  transform: scale(2);
+  transform: scale(1.5);
   animation-delay: 5s;
   animation-duration: 3s;
   animation-iteration-count: infinite;
-  animation-name: bounce;
   animation-timing-function: ease;
 }
 @keyframes bounce {

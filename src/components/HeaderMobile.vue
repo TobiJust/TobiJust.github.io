@@ -6,12 +6,7 @@
         Bairline
       </v-toolbar-title>
       <v-spacer></v-spacer>
-      <img
-        v-show="!drawer"
-        class="nav__image"
-        src="@/assets/logo/Logo_small.png"
-        alt
-      />
+      <BairlineLogo v-show="!drawer" class="nav__image" />
     </v-app-bar>
 
     <v-navigation-drawer
@@ -22,11 +17,7 @@
       dark
     >
       <template v-slot:prepend>
-        <img
-          class="nav__drawer__image"
-          src="@/assets/logo/Logo_small.png"
-          alt
-        />
+        <BairlineLogo class="nav__drawer__image" />
       </template>
 
       <v-divider></v-divider>
@@ -79,8 +70,10 @@
 import firebase from 'firebase/app'
 import 'firebase/auth'
 import { mapGetters } from 'vuex'
+import BairlineLogo from '@/components/BairlineLogo'
 
 export default {
+  components: { BairlineLogo },
   computed: {
     // map `this.user` to `this.$store.getters.user`
     ...mapGetters({
@@ -118,11 +111,13 @@ export default {
 
   &__image {
     height: 100%;
+    width: 20%;
   }
 
   &__drawer {
     &__image {
       width: 90%;
+      padding: 8%;
     }
   }
 }

@@ -3,11 +3,11 @@ const planes = {
     name: 'Gulfstream G500',
     tagline: 'The full package for long-range flights',
     content:
-      'Take a flight with our most technologically advanced and luxurious jet. The fastest aircraft in its class combined with plenty of space in the cabin is your best choice for long distance flights.',
+      'Take a flight with our technologically most advanced and luxurious jet. The fastest aircraft in its class combined with plenty of space is your best choice for long distance flights.',
     entryImage: require(`@/assets/web/Gulfstream G500/SL7_4849-Bearbeitet.jpg`),
-    coverImage: require(`@/assets/web/Gulfstream G500/SL7_4804-Bearbeitet.jpg`),
-    // floorplan: require(`@/assets/plane/floorplan_citationX.png`),
-    // floorplan_night: require(`@/assets/plane/floorplan_citationX_night.png`),
+    coverImage: require(`@/assets/web/Gulfstream G500/SL7_4804_0-Bearbeitet.jpg`),
+    floorplan: require(`@/assets/plane/floorplan_gulfstreamG500_day.png`),
+    floorplan_night: require(`@/assets/plane/floorplan_gulfstreamG500_night.png`),
     tourUrl: 'https://jet-pano.net/bairline/lub/',
     rangeMap: require(`@/assets/maps/map-gulfstreamG500.jpg`),
     specs: {
@@ -43,7 +43,6 @@ const planes = {
       require('@/assets/web/Gulfstream G500/SL7_4600-Bearbeitet.jpg'),
       require('@/assets/web/Gulfstream G500/SL7_4612-Bearbeitet.jpg'),
       require('@/assets/web/Gulfstream G500/SL7_4663-Bearbeitet.jpg'),
-      require('@/assets/web/Gulfstream G500/SL7_4768-Bearbeitet.jpg'),
       require('@/assets/web/Gulfstream G500/SL7_4681-Bearbeitet.jpg'),
       require('@/assets/web/Gulfstream G500/SL7_4762-Bearbeitet.jpg'),
       require('@/assets/web/Gulfstream G500/SL7_4618-Bearbeitet.jpg'),

@@ -71,7 +71,8 @@
         </div>
         <div v-scroll-to="'#element'" class="element__scroll">
           <div>
-            <v-icon x-large color="white">mdi-chevron-double-down</v-icon>
+            <span class="mdil mdil-f13c"></span>
+            <v-icon x-large color="white">mdi-chevron-down</v-icon>
           </div>
         </div>
       </div>

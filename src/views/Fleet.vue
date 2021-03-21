@@ -61,18 +61,19 @@ export default {
 @import '../assets/less/structure';
 
 .fleet {
-  height: 100%;
+  height: 100vh;
   width: 100%;
   position: relative;
 
   @media @medium {
-    height: 100vh;
+    height: 90vh;
   }
 
   background: var(--v-secondary-darken1);
   &__content {
     display: flex;
     flex-direction: column;
+    height: 100%;
 
     @media @medium {
       flex-direction: row;
@@ -86,7 +87,7 @@ export default {
       &__image {
         left: 0;
         height: 100%;
-        max-height: 100vh;
+        max-height: 100%;
         width: 100%;
         object-fit: cover;
         object-position: 30% 100%;

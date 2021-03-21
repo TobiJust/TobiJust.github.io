@@ -1,10 +1,6 @@
 <template>
   <div class="intro">
-    <img
-      class="intro__image"
-      src="@/assets/logo/Logo_cropped.png"
-      alt="Bairline"
-    />
+    <BairlineLogo class="intro__image" />
     <h1 class="intro__headline">
       {{ $vuetify.lang.t('$vuetify.intro.headline') }}
     </h1>
@@ -21,7 +17,10 @@
 </template>
 
 <script>
+import BairlineLogo from '@/components/BairlineLogo'
+
 export default {
+  components: { BairlineLogo },
   name: 'Intro',
   props: {
     msg: String
